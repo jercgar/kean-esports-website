@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send email to the website owner
     $mail->clearAddresses();
-    $mail->addAddress('justinpeters992@gmail.com');
+    $mail->addAddress('Indemnity992@gmail.com');
     $mail->Subject = "New Game Download Request";
     $mail->Body = "A new game download request has been submitted:\n\n";
     $mail->Body .= "Email: $email\nGame: $game\nPC Platform: $pc_platform\nRequest Time: " . date("Y-m-d H:i:s");
@@ -95,13 +95,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header>
         <h1>Game Download Request Form</h1>
     </header>
-    <main>
-        <?php
-        if (!empty($message)) {
-            echo '<p>' . $message . '</p>';
-        }
-        ?>
-    </main>
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
@@ -117,3 +110,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </nav>
         </ul>
     </nav>
+    <main>
+        <?php
+        if (!empty($message)) {
+            echo '<p>' . $message . '</p>';
+        }
+        ?>
+    </main>
+    
