@@ -17,10 +17,12 @@ if ($conn->connect_error) {
 if (isset($_SESSION['username'])) {
     $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
     $logoutOption = '<li><a href="logout.php">Logout</a></li>';
+    $loginOption = '';
 } 
 else {
     $dailyLogOption = '';
     $logoutOption = '';
+    $loginOption = '<li><a href="login.php">Login</a></li>';
 }
 
 $sql = "SELECT computer_choice, time_exit FROM daily_log";
@@ -57,12 +59,13 @@ if ($result->num_rows > 0) {
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="login.php">Login</a></li>
+            <?php echo $loginOption; ?>
             <li><a href="OperationHours.php">Operation Hours</a></li>
             <li><a href="Download_Request_Form.php">Game Download Request</a></li>
-            <li><a href="#reservation">Main Stage Reservation</a></li>
+            <li><a href="Main_Stage_Reservation_Form.php">Main Stage Reservation</a></li>
             <li><a href="Rules.php">Rules</a></li>
             <li><a href="FAQ.php">FAQ</a></li>
+            <li><a href="Esports.html">Esports</a></li>
             <?php echo $dailyLogOption; ?>
             <?php echo $logoutOption; ?>
         </ul>
