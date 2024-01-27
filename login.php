@@ -31,10 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $login = $_POST["username"];
     $password = $_POST["password"];
 
-    // TODO: Perform a query to verify the user's credentials
-    // Example:
-    $sql = "SELECT * FROM workers WHERE email = '$login' AND password = '$password'";
-    $result = $conn->query($sql);
+    // Use prepared statement to prevent SQL injection
+    $sql = "SELECT * FROM workers WHERE email = ? AND password = ?";
+    $stmt = $conn->prepare($sql);
+
+    // Bind parameters
+    $stmt->bind_param("ss", $login, $password);
+
+    // Execute the query
+    $stmt->execute();
+
+    // Get the result
+    $result = $stmt->get_result();
 
     if ($result->num_rows > 0) {
         // Successful login, set a session variable to remember the user
@@ -47,6 +55,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Invalid credentials, display an error message
         $error_message = "Invalid username or password.";
     }
+
+    // Close the statement
+    $stmt->close();
 }
 
 // Close the database connection
@@ -71,9 +82,10 @@ $conn->close();
             <li><a href="availability.php">Computer Availability</a></li>
             <li><a href="OperationHours.php">Operation Hours</a></li>
             <li><a href="Download_Request_Form.php">Game Download Request</a></li>
-            <li><a href="#reservation">Main Stage Reservation</a></li>
+            <li><a href="Main_Stage_Reservation_Form.php">Main Stage Reservation</a></li>
             <li><a href="Rules.php">Rules</a></li>
             <li><a href="FAQ.php">FAQ</a></li>
+            <li><a href="Esports.html">Esports</a></li>
             <?php echo $dailyLogOption; ?>
             <?php echo $logoutOption; ?>
         </ul>
