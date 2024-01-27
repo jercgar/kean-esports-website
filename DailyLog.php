@@ -19,10 +19,12 @@ if ($conn->connect_error) {
 if (isset($_SESSION['username'])) {
     $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
     $logoutOption = '<li><a href="logout.php">Logout</a></li>';
+    $logintOption = '';
 } 
 else {
     $dailyLogOption = '';
     $logoutOption = '';
+    $loginOption = '<li><a href="login.php">Login</a></li>';
 }
 
 $error_message = '';
@@ -91,13 +93,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="login.php">Login</a></li>
+            <?php echo $logintOption; ?>
             <li><a href="availability.php">Computer Availability</a></li>
             <li><a href="OperationHours.php">Operation Hours</a></li>
             <li><a href="Download_Request_Form.php">Game Download Request</a></li>
-            <li><a href="#reservation">Main Stage Reservation</a></li>
+            <li><a href="Main_Stage_Reservation_Form.php">Main Stage Reservation</a></li>
             <li><a href="Rules.php">Rules</a></li>
             <li><a href="FAQ.php">FAQ</a></li>
+            <li><a href="Esports.html">Esports</a></li>
             <?php echo $logoutOption; ?>
         </ul>
     </nav>
