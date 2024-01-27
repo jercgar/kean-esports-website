@@ -17,10 +17,12 @@ if ($conn->connect_error) {
 if (isset($_SESSION['username'])) {
     $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
     $logoutOption = '<li><a href="logout.php">Logout</a></li>';
+    $loginOption = '';
 } 
 else {
     $dailyLogOption = '';
     $logoutOption = '';
+    $loginOption = '<li><a href="login.php">Login</a></li>';
 }
 
 $sql = "SELECT computer_choice, time_exit FROM daily_log";
@@ -58,13 +60,14 @@ if ($result->num_rows > 0) {
     </header>
     <nav>
         <ul>
-            <li><a href="login.php">Login</a></li>
+            <?php echo $loginOption; ?>
             <li><a href="availability.php">Computer Availability</a></li>
             <li><a href="OperationHours.php">Operation Hours</a></li>
             <li><a href="Download_Request_Form.php">Game Download Request</a></li>
-            <li><a href="#reservation">Main Stage Reservation</a></li>
+            <li><a href="Main_Stage_Reservation_Form.php">Main Stage Reservation</a></li>
             <li><a href="Rules.php">Rules</a></li>
             <li><a href="FAQ.php">FAQ</a></li>
+            <li><a href="Esports.html">Esports</a></li>
             <?php echo $dailyLogOption; ?>
             <?php echo $logoutOption; ?>
         </ul>
@@ -72,6 +75,9 @@ if ($result->num_rows > 0) {
     <main>
         <h2>Welcome to Kean University eSports Arena</h2>
         <h3>Home for all things video games</h3>
+        <div class="image-container">
+            <img src="KeanEsportsImage.png" alt="Home Page Image" class="main-image">
+         </div>  
         <p>Follow us on Social Media</p>
         <div class="social-icons-container">
         <a href="https://twitter.com/Kean_Esports" target="_blank">
@@ -83,7 +89,7 @@ if ($result->num_rows > 0) {
         <a href="https://www.instagram.com/kean_esports" target="_blank">
         <img src="instagram.png" alt="Instagram Logo" class="social-icon" width="90" height="90">
     </a>
-    <a href="https://www.instagram.com/kean_esports" target="_blank">
+    <a href="https://discord.gg/j2ShSXuQ" target="_blank">
         <img src="DiscordLogo.png" alt="Discord Logo" class="social-icon" width="90" height="90">
     </a>
 </div>
