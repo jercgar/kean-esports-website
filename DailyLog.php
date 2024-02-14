@@ -6,7 +6,7 @@ session_start();
 $servername = "localhost";
 $username = "justin";
 $password = "justin";
-$dbname = "cps4301";
+$dbname = "esports";
 
 // Create a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -31,7 +31,7 @@ $error_message = '';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Connect to the database (use your database credentials)
-    $conn = new mysqli("localhost", "justin", "justin", "cps4301");
+    $conn = new mysqli("localhost", "justin", "justin", "esports");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
@@ -58,7 +58,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $first_name = mysqli_real_escape_string($conn, $_POST["first_name"]);
         $last_name = mysqli_real_escape_string($conn, $_POST["last_name"]);
         $computer_choice = mysqli_real_escape_string($conn, $_POST["computer_choice"]);
-        $time_entered = mysqli_real_escape_string($conn, $_POST["time_entered"]); // Use VARCHAR
         $student_id = mysqli_real_escape_string($conn, $_POST["student_id"]);
 
         // Insert data into the database
@@ -101,6 +100,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a href="Rules.php">Rules</a></li>
             <li><a href="FAQ.php">FAQ</a></li>
             <li><a href="Esports.html">Esports</a></li>
+
             <?php echo $logoutOption; ?>
         </ul>
     </nav>
@@ -110,6 +110,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div id="daily-log-form">
             <form action="DailyLog.php" method="post">
                 <br>
+                <label for="date"><?php echo "Date:". date('m/d/Y'); ?></label>
+                <br><br>
                 <label for="first_name">First Name:</label>
                 <input type="text" id="first_name" name="first_name" required>
                 <br><br>
@@ -118,9 +120,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br><br>
                 <label for="computer_choice">Computer Choice:</label>
                 <input type="number" id="computer_choice" name="computer_choice" required>
-                <br><br>
-                <label for="time_entered">Time Entered:</label>
-                <input type="text" id="time_entered" name="time_entered" required>
                 <br><br>
                 <label for="student_id">Student ID:</label>
                 <input type="number" id="student_id" name="student_id" required>
@@ -134,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <!-- Display the Daily Log table -->
         <?php
         // Connect to the database to fetch daily log data
-        $conn = new mysqli("localhost", "justin", "justin", "cps4301");
+        $conn = new mysqli("localhost", "justin", "justin", "esports");
 
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -150,27 +149,25 @@ if ($result->num_rows > 0) {
     echo "<h2>Daily Log Table</h2>";
     echo "<table class='daily-log-table'>";
     echo "<tr>
-              <th>ID</th>
               <th>First Name</th>
               <th>Last Name</th>
               <th>Computer Choice</th>
-              <th>Time Entered</th>
+              <th>Date</th>
               <th>Time Exit</th>
               <th>Student ID</th>
           </tr>";
 
     $offset = ($page - 1) * $entries_per_page; // Calculate the offset
 
-    $query = "SELECT * FROM daily_log LIMIT $offset, $entries_per_page";
+    $query = "SELECT id, first_name, last_name, computer_choice, DATE_FORMAT(dte, '%m/%d/%Y %h:%i %p') as date, time_exit, student_id FROM daily_log LIMIT $offset, $entries_per_page";
     $result = $conn->query($query);
 
     while ($row = $result->fetch_assoc()) {
         echo "<tr>";
-            echo "<td>" . $row["id"] . "</td>";
             echo "<td>" . $row["first_name"] . "</td>";
             echo "<td>" . $row["last_name"] . "</td>";
             echo "<td>" . $row["computer_choice"] . "</td>";
-            echo "<td>" . $row["time_entered"] . "</td>";
+            echo "<td>" . $row["date"] . "</td>";
 
             if (!isset($_GET['edit']) || $_GET['edit'] != $row["id"]) {
                 // Display the "Time Exit" as text
