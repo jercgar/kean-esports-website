@@ -4,7 +4,7 @@ session_start();
 $servername = "localhost";
 $username = "justin";
 $password = "justin";
-$dbname = "cps4301";
+$dbname = "esports";
 
 // Create a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -74,7 +74,7 @@ if ($result->num_rows > 0) {
         <div id="computer-availability">
             <ul>
                 <?php
-                for ($computerNumber = 1; $computerNumber <= 30; $computerNumber++) {
+                for ($computerNumber = 1; $computerNumber <= 23; $computerNumber++) {
                     $availability = isset($computerAvailability[$computerNumber]) ? $computerAvailability[$computerNumber] : "Available";
                     $availabilityClass = ($availability == "Not Available") ? "not-available" : "available";
                     echo "<li class='$availabilityClass'>Computer $computerNumber: $availability</li>";
