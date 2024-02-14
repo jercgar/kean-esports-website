@@ -10,7 +10,7 @@ session_start();
 $servername = "localhost";
 $username = "justin";
 $password = "justin";
-$dbname = "cps4301";
+$dbname = "esports";
 
 // Create a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send email to the website owner
     $mail->clearAddresses();
-    $mail->addAddress('Indemnity992@gmail.com');
+    $mail->addAddress('justinpeters992@gmail.com');
     $mail->Subject = "New Main Stage Reservation Request";
     $mail->Body = "A new reservation for the main stage has been requested:\n\n";
     $mail->Body .= "Name: $name\nEmail: $email\nEvent Description: $event_description\nRequest Time: " . date("Y-m-d H:i:s");
