@@ -4,7 +4,7 @@ session_start();
 $servername = "localhost";
 $username = "justin";
 $password = "justin";
-$dbname = "cps4301";
+$dbname = "esports";
 
 // Create a connection to the database
 $conn = new mysqli($servername, $username, $password, $dbname);
