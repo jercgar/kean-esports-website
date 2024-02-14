@@ -1,191 +1,200 @@
+/* General Styles */
 body {
-    font-family: 'Bubblegum Sans', cursive;
-    margin: 0;
-    padding: 0;
-    background: linear-gradient(to bottom, #6495ED, #6495ED);
+  font-family: "Times New Roman", Times, serif; /* Adding Times font */
+  line-height: 1.6; /* Adjusted line height */
+  color: #333;
+  margin: 0;
+  padding: 0;
 }
 
-header {
-    background: url('mainstagepic.jpeg'); 
-    background-size: cover;
-    color: #fff;
-    text-align: center;
-    padding: 30px;
-    border-bottom: 4px solid #0074d9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 20px 20px;
-}
-
-header h1 {
-    font-family: 'Bubblegum Sans', cursive;
-    font-size: 36px;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-}
-
-nav {
-    background: #000;
-    color: #fff;
-    text-align: center;
-    border-radius: 0 0 20px 20px;
-    margin-top: -16px;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin: 20px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-    background: #0074d9;
-    padding: 12px 24px;
-    border-radius: 0;
-    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
-    transition: background-color 0.3s ease-in-out;
-}
-
-nav ul li a:hover {
-    background: #0056b3;
-}
-
-.social-icons-container {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    margin-top: 20px;
-}
-
-.social-icon {
-    width: 30px;
-    height: 30px;
-    margin: 0 10px; /* Add space between icons */
-}
-
-/* Unchanged existing styles */
-
-/* Add the styles for the image */
-.image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px; /* Adjust as needed */
-}
-
-.main-image {
-    max-width: 100%;
-    height: auto;
-    /* Add other styling as needed */
-}
-
-/* Styles for the Esports tabs */
-.esports-tabs {
-    display: flex;
-    justify-content: space-around;
-    background-color: #333;
-    padding: 10px;
-}
-
-.esports-tab {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.esports-tab:hover {
-    background-color: #555;
-}
-
-/* Styles for the Esports sub-tabs */
-.esports-subtabs {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    background-color: #333;
-}
-
-.esports-subtabs li {
-    margin: 0 10px;
-}
-
-.esports-subtabs a {
-    text-decoration: none;
-    color: #fff;
-    padding: 10px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.esports-subtabs a:hover {
-    background-color: #555;
-}
-
-/* Styles for Esports Content */
-main {
-    max-width: 800px;
-    margin: 20px auto;
-    padding: 20px;
-    background: #fff;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
-}
-
-h2 {
-    font-size: 32px;
-    color: #333;
-    margin-top: 20px;
-}
-
-h3 {
-    font-size: 24px;
-    color: #333;
+h1, h2, h3 {
+  line-height: 1.2;
+  margin-bottom: 10px;
 }
 
 p {
-    line-height: 1.6;
+  margin-bottom: 20px;
 }
 
-/* Include Bubblegum Sans font */
-@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
+li {
+  margin-bottom: 5px;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header Styles */
+header {
+  background: url('mainstagepic.jpeg');
+  background-size: cover;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+header .game-logo {
+  vertical-align: middle;
+  margin-left: 10px;
+  height: auto;
+  width: auto;
+}
+
+/* Navigation Styles */
+nav {
+  background-color: #eee;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+nav ul {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: 50px;
+}
+
+nav ul li {
+  display: inline-block;
+  margin-right: 20px;
+}
+
+/* Main Content Styles */
+main {
+  padding: 20px;
+}
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  margin-top: 20px;
+}
+
+footer p {
+  margin: 0;
+}
+
+/* eSports Subtabs */
+.esports-subtabs {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+.esports-subtabs li {
+  float: left;
+}
+
+.esports-subtabs li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.esports-subtabs li a:hover {
+  background-color: #00008B;
+}
+
+/* Dropdown Styles */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropdown-content a {
+  color: white;
+}
+
+/* Daily Log Table */
 .daily-log-table {
-    width: 100%;
-    border-collapse: collapse;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 .daily-log-table th, .daily-log-table td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
 }
 
 .daily-log-table th {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
+/* Pagination Styles */
 .pagination {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .pagination a, .pagination .current-page {
-    display: inline-block;
-    padding: 5px 10px;
-    margin: 0 5px;
-    border: 1px solid #ccc;
-    text-decoration: none;
+  display: inline-block;
+  padding: 5px 10px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  text-decoration: none;
 }
 
 .pagination .current-page {
-    background-color: #0074d9; / Highlight the current page */
-    color: #fff;
+  background-color: #0074d9;
+  color: #fff;
 }
