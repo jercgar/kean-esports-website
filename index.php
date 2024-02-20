@@ -56,6 +56,15 @@ if ($result->num_rows > 0) {
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntXU" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMp9Mvc" crossorigin="anonymous"></script>
     <meta http-equiv="refresh" content="60"> <!-- Auto-refresh every 60 seconds -->
+    <style>
+        /* Additional CSS for header */
+        header {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #fff; /* White text */
+            padding: 20px; /* Add padding to the header */
+            text-align: center; /* Center align the text */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -75,8 +84,6 @@ if ($result->num_rows > 0) {
                 <li class="nav-item">
                     <a class="nav-link" href="Download_Request_Form.php">Game Download Request</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Main_Stage_Reservation_Form.php">Main Stage Reservation</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="Rules.php">Rules</a>
@@ -97,21 +104,21 @@ if ($result->num_rows > 0) {
         <h2>Welcome to Kean University eSports Arena</h2>
         <h3>Home for all things video games</h3>
         <div class="image-container">
-            <img src="KeanEsportsImage.png" alt="Home Page Image" class="main-image">
+            <img src="logos/KeanEsportsImage.png" alt="Home Page Image" class="main-image">
          </div>  
         <p>Follow us on Social Media</p>
         <div class="social-icons-container">
         <a href="https://twitter.com/Kean_Esports" target="_blank">
-        <img src="xlogo.png" alt="Twitter Logo" class="social-icon" width="90" height="90">
+        <img src="logos/xlogo.png" alt="Twitter Logo" class="social-icon" width="90" height="90">
     </a>
         <a href="https://www.twitch.tv/kean_esports" target="_blank">
-        <img src="twitchlogo.png" alt="Twitch Logo" class="social-icon" width="90" height="90">
+        <img src="logos/twitchlogo.png" alt="Twitch Logo" class="social-icon" width="90" height="90">
     </a>
         <a href="https://www.instagram.com/kean_esports" target="_blank">
-        <img src="instagram.png" alt="Instagram Logo" class="social-icon" width="90" height="90">
+        <img src="logos/instagram.png" alt="Instagram Logo" class="social-icon" width="90" height="90">
     </a>
     <a href="https://discord.gg/j2ShSXuQ" target="_blank">
-        <img src="DiscordLogo.png" alt="Discord Logo" class="social-icon" width="90" height="90">
+        <img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="90" height="90">
     </a>
 </div>
     </main>
