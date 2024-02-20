@@ -82,8 +82,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daily Log - Kean University eSports Arena</title>
+    <title>DailyLog- Kean University eSports Arena</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional CSS for header */
+        header {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #fff; /* White text */
+            padding: 20px; /* Add padding to the header */
+            text-align: center; /* Center align the text */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -96,7 +107,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <li><a href="availability.php">Computer Availability</a></li>
             <li><a href="OperationHours.php">Operation Hours</a></li>
             <li><a href="Download_Request_Form.php">Game Download Request</a></li>
-            <li><a href="Main_Stage_Reservation_Form.php">Main Stage Reservation</a></li>
             <li><a href="Rules.php">Rules</a></li>
             <li><a href="FAQ.php">FAQ</a></li>
             <li><a href="Esports.html">Esports</a></li>
