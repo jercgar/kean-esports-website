@@ -95,19 +95,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <header class="container-fluid">
         <h1>Game Download Request Form</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <?php echo $loginOption; ?>
-            <li><a href="availability.php">Computer Availability</a></li>
-            <li><a href="OperationHours.php">Operation Hours</a></li>
-            <li><a href="Main_Stage_Reservation_Form.php">Main Stage Reservation</a></li>
-            <li><a href="Rules.php">Rules</a></li>
-            <li><a href="FAQ.php">FAQ</a></li>
-            <li><a href="Esports.html">Esports</a></li>
-            <?php echo $dailyLogOption; ?>
-            <?php echo $logoutOption; ?>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="availability.php">Computer Availability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="OperationHours.php">Operation Hours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="Rules.php">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="FAQ.php">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="Esports.html">Esports</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
     <main class="container">
         <section>
