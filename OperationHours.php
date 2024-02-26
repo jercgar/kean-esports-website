@@ -49,18 +49,34 @@ else {
     <header>
         <h1>Operation Hours</h1>
     </header>
-    <nav>
-        <ul>
-            <li><a href="index.php">Home</a></li>
-            <?php echo $loginOption; ?>
-            <li><a href="availability.php">Computer Availability</a></li>
-            <li><a href="Download_Request_Form.php">Game Download Request</a></li>
-            <li><a href="Rules.php">Rules</a></li>
-            <li><a href="FAQ.php">FAQ</a></li>
-            <li><a href="Esports.html">Esports</a></li>
-            <?php echo $dailyLogOption; ?>
-            <?php echo $logoutOption; ?>
-        </ul>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="availability.php">Computer Availability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="Download_Request_Form.php">Game Download Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="Rules.php">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="FAQ.php">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="Esports.html">Esports</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
     <main>
         <h2>Open Play Hours</h2>
