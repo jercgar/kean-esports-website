@@ -15,14 +15,13 @@ if ($conn->connect_error) {
 }
 
 if (isset($_SESSION['username'])) {
-    $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
-    $logoutOption = '<li><a href="logout.php">Logout</a></li>';
+    $dailyLogOption = '<li class="nav-item"><a class="btn btn-secondary" href="DailyLog.php">Daily Log</a></li>';
+    $logoutOption = '<li class="nav-item"><a class="btn btn-secondary" href="logout.php">Logout</a></li>';
     $loginOption = '';
-} 
-else {
+} else {
     $dailyLogOption = '';
     $logoutOption = '';
-    $loginOption = '<li><a href="login.php">Login</a></li>';
+    $loginOption = '<li class="nav-item"><a class="btn btn-secondary" href="login.php">Login</a></li>';
 }
 
 $sql = "SELECT computer_choice, time_exit FROM daily_log";
@@ -71,56 +70,59 @@ if ($result->num_rows > 0) {
         <h1>Kean University eSports Arena</h1>
     </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <?php echo $loginOption; ?>
-                <li class="nav-item">
-                    <a class="nav-link" href="availability.php">Computer Availability</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="OperationHours.php">Operation Hours</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Download_Request_Form.php">Game Download Request</a>
-                </li>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Rules.php">Rules</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="FAQ.php">FAQ</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="Esports.html">Esports</a>
-                </li>
-                <?php echo $dailyLogOption; ?>
-                <?php echo $logoutOption; ?>
-            </ul>
+        <div class="container-fluid">
+        <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <?php echo $loginOption; ?>
+                    <li class="nav-item">
+                    <a class="btn btn-secondary" href="availability.php">Computer Availability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="OperationHours.php">Operation Hours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="Download_Request_Form.php">Game Download Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="Rules.php">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="FAQ.php">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-secondary" href="Esports.html">Esports</a>
+                    </li>
+                    <?php echo $dailyLogOption; ?>
+                    <?php echo $logoutOption; ?>
+                </ul>
+            </div>
         </div>
-    </div>
-</nav>
+    </nav>
     <main>
         <h2>Welcome to Kean University eSports Arena</h2>
         <h3>Home for all things video games</h3>
         <div class="image-container">
             <img src="logos/KeanEsportsImage.png" alt="Home Page Image" class="main-image">
-         </div>  
+        </div>
         <p>Follow us on Social Media</p>
         <div class="social-icons-container">
-        <a href="https://twitter.com/Kean_Esports" target="_blank">
-        <img src="logos/xlogo.png" alt="Twitter Logo" class="social-icon" width="90" height="90">
-    </a>
-        <a href="https://www.twitch.tv/kean_esports" target="_blank">
-        <img src="logos/twitchlogo.png" alt="Twitch Logo" class="social-icon" width="90" height="90">
-    </a>
-        <a href="https://www.instagram.com/kean_esports" target="_blank">
-        <img src="logos/instagram.png" alt="Instagram Logo" class="social-icon" width="90" height="90">
-    </a>
-    <a href="https://discord.gg/j2ShSXuQ" target="_blank">
-        <img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="90" height="90">
-    </a>
-</div>
+            <a href="https://twitter.com/Kean_Esports" target="_blank">
+                <img src="logos/xlogo.png" alt="Twitter Logo" class="social-icon" width="90" height="90">
+            </a>
+            <a href="https://www.twitch.tv/kean_esports" target="_blank">
+                <img src="logos/twitchlogo.png" alt="Twitch Logo" class="social-icon" width="90" height="90">
+            </a>
+            <a href="https://www.instagram.com/kean_esports" target="_blank">
+                <img src="logos/instagram.png" alt="Instagram Logo" class="social-icon" width="90" height="90">
+            </a>
+            <a href="https://discord.gg/j2ShSXuQ" target="_blank">
+                <img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="90" height="90">
+            </a>
+        </div>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
