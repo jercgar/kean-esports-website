@@ -164,7 +164,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div id="daily-log-form">
         <form action="DailyLog.php" method="post">
             <br>
-            <label for="date"><?php echo "Date:". date('m/d/Y'); ?></label>
+            <label for="date"><?php date_default_timezone_set('US/Eastern'); echo "Date:". date('m/d/Y'); ?></label>
             <br><br>
             <label for="first_name">First Name:</label>
             <input type="text" id="first_name" name="first_name" required>
@@ -214,7 +214,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $offset = ($page - 1) * $entries_per_page; // Calculate the offset
 
-        $query = "SELECT id, first_name, last_name, computer_choice, DATE_FORMAT(dte, '%m/%d/%Y %h:%i %p') as date, time_exit, student_id FROM daily_log LIMIT $offset, $entries_per_page";
+        $query = "SELECT id, first_name, last_name, computer_choice, DATE_FORMAT(dte, '%m/%d/%Y %h:%i %p') as date_formatted, time_exit, student_id FROM daily_log LIMIT $offset, $entries_per_page";
         $result = $conn->query($query);
 
         while ($row = $result->fetch_assoc()) {
@@ -222,7 +222,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo "<td>" . $row["first_name"] . "</td>";
             echo "<td>" . $row["last_name"] . "</td>";
             echo "<td>" . $row["computer_choice"] . "</td>";
-            echo "<td>" . $row["date"] . "</td>";
+            echo "<td>" . $row["date_formatted"] . "</td>";
 
             // Display the "Time Exit" as text or an input field for editing
             if (!isset($_GET['edit']) || $_GET['edit'] != $row["id"]) {
