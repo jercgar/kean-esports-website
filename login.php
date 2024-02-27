@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $password = $_POST["password"];
 
     // Use prepared statement to prevent SQL injection
-    $sql = "SELECT * FROM workers WHERE email = ? AND password = ?";
+    $sql = "SELECT * FROM workers WHERE first_name = ? AND password = ?";
     $stmt = $conn->prepare($sql);
 
     // Bind parameters
@@ -105,7 +105,7 @@ $conn->close();
             <br>
             <form action="login.php" method="post">
                 <label for="username">Username:</label>
-                <input type="email" id="username" name="username" required>
+                <input type="textbox" id="username" name="username" required>
                 <br><br>
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
