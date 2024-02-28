@@ -81,6 +81,7 @@ if ($result->num_rows > 0) {
                     <li class="nav-item">
                     <a class="btn btn-secondary" href="availability.php">Computer Availability</a>
                     </li>
+                    <?php echo $dailyLogOption; ?>
                     <li class="nav-item">
                         <a class="btn btn-secondary" href="OperationHours.php">Operation Hours</a>
                     </li>
@@ -96,15 +97,12 @@ if ($result->num_rows > 0) {
                     <li class="nav-item">
                         <a class="btn btn-secondary" href="Esports.html">Esports</a>
                     </li>
-                    <?php echo $dailyLogOption; ?>
                     <?php echo $logoutOption; ?>
                 </ul>
             </div>
         </div>
     </nav>
     <main class="home-page-main">
-        <h2>Welcome to Kean University eSports Arena</h2>
-        <h3>Home for all things video games</h3>
         <div class="image-container">
             <img src="logos/KeanEsportsImage.png" alt="Home Page Image" class="main-image">
         </div>
@@ -119,7 +117,7 @@ if ($result->num_rows > 0) {
             <a href="https://www.instagram.com/kean_esports" target="_blank">
                 <img src="logos/instagram.png" alt="Instagram Logo" class="social-icon" width="90" height="90">
             </a>
-            <a href="https://discord.gg/j2ShSXuQ" target="_blank">
+            <a href="https://discord.gg/MqYR638K" target="_blank">
                 <img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="90" height="90">
             </a>
         </div>

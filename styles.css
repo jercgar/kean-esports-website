@@ -79,6 +79,7 @@ nav ul li {
 
 /* Main Content Styles */
 main {
+  background: linear-gradient(to bottom, #333, #666);
   padding: 20px;
 }
 
