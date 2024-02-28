@@ -102,7 +102,7 @@ if ($result->num_rows > 0) {
             </div>
         </div>
     </nav>
-    <main>
+    <main class="home-page-main">
         <h2>Welcome to Kean University eSports Arena</h2>
         <h3>Home for all things video games</h3>
         <div class="image-container">

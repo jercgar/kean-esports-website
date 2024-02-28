@@ -82,6 +82,16 @@ main {
   padding: 20px;
 }
 
+.home-page-main {
+  padding: 20px;
+  display: flex; /* Use flexbox */
+  flex-direction: column; /* Arrange items vertically */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  text-align: center; /* Center text */
+}
+
+
 /* Footer Styles */
 footer {
   background-color: #333;
