@@ -9,31 +9,61 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <style>
+      /* Additional CSS for vertical line */
+      .vertical-line {
+            border-left: 1px solid #ccc;
+            height: 30px; /* Adjust height as needed */
+            margin: 0 10px; /* Adjust margin as needed */
+        }
+    </style>
 </head>
 <body>
     <header>
         <h1>Kean University eSports Arena</h1>
     </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
+      <div class="container-fluid">
+          <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+              <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="btn btn-secondary" href="index.php">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="btn btn-secondary" href="Esports.html">Esports</a>
-              </li>
-              <li class="nav-item">
-                <a class="btn btn-secondary" href="RequestInfo.html">Request Info</a>
-              </li>
-            </ul>
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+              <ul class="navbar-nav">
+                  <li class="nav-item">
+                  <a class="btn btn-secondary" href="index.php">Home</a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="btn btn-secondary" href="Esports.html">Esports</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="btn btn-secondary" href="RequestInfo.html">Request Info</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav">
+                  <!-- New list item for social media icons -->
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://twitter.com/Kean_Esports" target="_blank"><img src="logos/xlogo.png" alt="Twitter Logo" class="social-icon" width="30" height="30"></a>
+                  </li>
+                  <!-- Vertical line between icons -->
+                  <li class="nav-item vertical-line"></li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://www.twitch.tv/kean_esports" target="_blank"><img src="logos/twitchlogo.png" alt="Twitch Logo" class="social-icon" width="30" height="30"></a>
+                  </li>
+                  <!-- Vertical line between icons -->
+                  <li class="nav-item vertical-line"></li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://www.instagram.com/kean_esports" target="_blank"><img src="logos/instagram.png" alt="Instagram Logo" class="social-icon" width="30" height="30"></a>
+                  </li>
+                  <!-- Vertical line between icons -->
+                  <li class="nav-item vertical-line"></li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="https://discord.gg/MqYR638K" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
+                  </li>
+              </ul>
           </div>
-        </div>
-    </nav>
+      </div>
+  </nav>
     <main class="container">
       <div class="container">
         <div class="row">
@@ -49,22 +79,22 @@
               <div id="collapseVAL" class="collapse" aria-labelledby="headingVAL">
                 <div class="card-body">
                   <h5>Coaches</h5>
-                  <ul>
+                  
                     <li>Justin "Greater Feeds" Flaningan</li>
                     <li>Jeremiah "JnPx" Garcia | Computer Science '24</li>
-                  </ul>
+                  
                   <h5>Captain</h5>
-                  <ul>
+                  
                     <li>Nikita "NinjaVoin" Rozumnyi | Marketing '24</li>
-                  </ul>
+                  
                   <h5>Players</h5>
-                  <ul>
+                  
                     <li>Kenneth "Kenny" Mack | Computer Science: Cybersecurity '26</li>
                     <li>Frank "Frank" Aguirre | Information Technology '26</li>
                     <li>Ameer "Odd" Chomba | Psychology '27</li>
                     <li>Jakov "Jae" Zamora</li>
                     <li>Jennifer "Jema" Martins | Criminal Justice '25</li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>
@@ -83,17 +113,17 @@
               <div id="collapseOW2" class="collapse" aria-labelledby="headingOW2">
                 <div class="card-body">
                   <h5>Captains</h5>
-                  <ul>
+                  
                     <li>Jerry "WaffleIron" Howard | Psychology '24</li>
                     <li>Jhordy "LeoLeon" Jaramillo | Psychology '23</li>
-                  </ul>
+                  
                   <h5>Players</h5>
-                  <ul>
+                  
                     <li>Michael "Agumi" Aguirre | Marketing '26</li>
                     <li>Chelsea "Beans" Pelley | Molecular Biology</li>
                     <li>Danny "Becomix" Gavino | Architecture</li>
                     <li>Javon "Stand" Thompson | </li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>
@@ -112,21 +142,21 @@
               <div id="collapseRL" class="collapse" aria-labelledby="headingRL">
                 <div class="card-body">
                   <h5>Coach</h5>
-                  <ul>
+                  
                     <li>Michael "Astro" Scardigno</li>
-                  </ul>
+                  
                   <h5>Captain</h5>
-                  <ul>
+                  
                     <li>Justin "Indemnity" Peters | Computer Science '24</li>
-                  </ul>
+                  
                   <h5>Players</h5>
-                  <ul>
+                  
                     <li>Jacob "Jake" Ullman | Elementary Education K-6/TSD Endorsment-Earth Science '25</li>
                     <li>Joshua "Meatball" Figueroa</li>
                     <li>Shane "BradPittsDad" Fallon</li>
                     <li>Angel "Flamez_Kai" Figueroa</li>
                     <li>Jared "Jared" Luna</li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>
@@ -145,11 +175,11 @@
               <div id="collapseR6" class="collapse" aria-labelledby="headingR6">
                 <div class="card-body">
                   <h5>Coach</h5>
-                  <ul>
+                  
                     <li>Emma "Emmatheevo" Perkins</li>
-                  </ul>
+                  
                   <h5>Players</h5>
-                  <ul>
+                  
                     <li>Alil "aliltoomuch" Hale-Small</li>
                     <li>David "DaffierShelf" Bromirski</li>
                     <li>Jeffrey "The Tacoman13" Bello</li>
@@ -157,7 +187,7 @@
                     <li>Evan "klorine._." La'Quer-Egerton</li>
                     <li>Mark "KU.mark0417" McCarthy</li>
                     <li>Luke "pokethepossum" Foster</li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>
@@ -176,23 +206,21 @@
               <div id="collapseLOL" class="collapse" aria-labelledby="headingLOL">
                 <div class="card-body">
                   <h5>Coach</h5>
-                  <ul>
+                  
                     <li>Milton "biqqdaddii" Santacruz</li>
-                  </ul>
+                  
                   <h5>Captain</h5>
-                  <ul>
+                  
                     <li>Haoyan "StarG" Gu</li>
-                  </ul>
+                  
                   <h5>Players</h5>
-                  <ul>
+                  
                     <li>Gerald "BoatChicken" Davis</li>
                     <li>Keyan "GaryDJB" Duan</li>
                     <li>Yongheng "Knight9z" Liu</li>
                     <li>Vincent "Zeus Ex Machina" Doda</li>
                     <li>Liangliang "Wuannan" Wu</li>
-                    <li></li>
-                    <li></li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>
@@ -211,17 +239,17 @@
               <div id="collapseSSB" class="collapse" aria-labelledby="headingSSB">
                 <div class="card-body">
                   <h5>Captain</h5>
-                  <ul>
+                  
                     <li>John-Paul "itsjpdudehi" De Luca</li>
-                  </ul>
+                  
                   <h5>Players</h5>
-                  <ul>
+                  
                     <li>Andre "agnation" Gray</li>
                     <li>Giovani "Gio" Edmond</li>
                     <li>Sheldon "ItsNoUse" Dohman</li>
                     <li>Jalen "MrDragoon334" Jackson</li>
                     <li>Parker "Ryujin" Leake</li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>
@@ -240,26 +268,26 @@
               <div id="collapseSPT" class="collapse" aria-labelledby="headingSPT">
                 <div class="card-body">
                   <h5>NBA 2K24</h5>
-                  <ul>
+                  
                     <li>Tony "Knickavellie7" Maddox</li>
-                  </ul>
+                  
                   <h5>EA Sports FC 24</h5>
-                  <ul>
+                  
                     <li>Joe Paul "Paulijoe44" Mong'are</li>
-                  </ul>
+                  
                   <h5>Madden NFL 24</h5>
-                  <ul>
+                  
                     <li>Yahir "PresidentMal33" Castelan-Flores</li>
-                  </ul>
+                  
                   <h5>Street Fighter 6</h5>
-                  <ul>
+                  
                     <li>Brodie "Stingrays110" Berger</li>
                     <li>Aura "Fixmix" Akunne</li>
-                  </ul>
+                  
                   <h5>Hearthstone</h5>
-                  <ul>
+                  
                     <li>Theresa "OhSoSweetTea" Lee</li>
-                  </ul>
+                  
                 </div>
               </div>
             </div>

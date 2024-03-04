@@ -2,7 +2,8 @@
 body {
   font-family: "Times New Roman", Times, serif; /* Adding Times font */
   line-height: 1.6; /* Adjusted line height */
-  color: #333;
+  background: linear-gradient(to bottom, #74c7f8, #4686fd);
+  color: #000000;
   margin: 0;
   padding: 0;
 }
@@ -27,7 +28,7 @@ li {
 }
 
 a {
-  color: #0066cc;
+  color: #fafdff;
   text-decoration: none;
 }
 
@@ -40,7 +41,7 @@ header {
   font-family: "Times New Roman", Times, serif; /* Adding Times font */
   background: url('logos/mainstagepic.jpeg');
   background-size: cover;
-  background-color: #333;
+  background-color: #ffffff;
   color: #fff;
   padding: 20px;
   text-align: center; /* Center align the text */
@@ -77,12 +78,6 @@ nav ul li {
   margin-right: 20px;
 }
 
-/* Main Content Styles */
-main {
-  background: linear-gradient(to bottom, #333, #666);
-  padding: 20px;
-}
-
 .home-page-main {
   padding: 20px;
   display: flex; /* Use flexbox */
@@ -92,90 +87,8 @@ main {
   text-align: center; /* Center text */
 }
 
-
-/* Footer Styles */
-footer {
-  background-color: #333;
-  color: #fff;
-  padding: 20px;
-  text-align: center;
-  margin-top: 20px;
-}
-
 footer p {
   margin: 0;
-}
-
-/* eSports Subtabs */
-.esports-subtabs {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-.esports-subtabs li {
-  float: left;
-}
-
-.esports-subtabs li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-.esports-subtabs li a:hover {
-  background-color: #00008B;
-}
-
-/* Dropdown Styles */
-.dropdown {
-  float: left;
-  overflow: hidden;
-}
-
-.dropdown .dropbtn {
-  font-size: 16px;
-  border: none;
-  outline: none;
-  color: white;
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  float: none;
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {
-  background-color: #ddd;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown:hover .dropdown-content a {
-  color: white;
 }
 
 /* Daily Log Table */
@@ -208,6 +121,6 @@ footer p {
 }
 
 .pagination .current-page {
-  background-color: #0074d9;
+  background-color: #ffffff;
   color: #fff;
 }

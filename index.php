@@ -63,6 +63,13 @@ if ($result->num_rows > 0) {
             padding: 20px; /* Add padding to the header */
             text-align: center; /* Center align the text */
         }
+
+        /* Additional CSS for vertical line */
+        .vertical-line {
+            border-left: 1px solid #ccc;
+            height: 30px; /* Adjust height as needed */
+            margin: 0 10px; /* Adjust margin as needed */
+        }
     </style>
 </head>
 <body>
@@ -71,11 +78,11 @@ if ($result->num_rows > 0) {
     </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-        <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
+            <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <?php echo $loginOption; ?>
                     <li class="nav-item">
@@ -99,28 +106,61 @@ if ($result->num_rows > 0) {
                     </li>
                     <?php echo $logoutOption; ?>
                 </ul>
+                <ul class="navbar-nav">
+                    <!-- New list item for social media icons -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/Kean_Esports" target="_blank"><img src="logos/xlogo.png" alt="Twitter Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                    <!-- Vertical line between icons -->
+                    <li class="nav-item vertical-line"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.twitch.tv/kean_esports" target="_blank"><img src="logos/twitchlogo.png" alt="Twitch Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                    <!-- Vertical line between icons -->
+                    <li class="nav-item vertical-line"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.instagram.com/kean_esports" target="_blank"><img src="logos/instagram.png" alt="Instagram Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                    <!-- Vertical line between icons -->
+                    <li class="nav-item vertical-line"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://discord.gg/MqYR638K" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
     <main class="home-page-main">
-        <div class="image-container">
-            <img src="logos/KeanEsportsImage.png" alt="Home Page Image" class="main-image">
-        </div>
-        <p>Follow us on Social Media</p>
-        <div class="social-icons-container">
-            <a href="https://twitter.com/Kean_Esports" target="_blank">
-                <img src="logos/xlogo.png" alt="Twitter Logo" class="social-icon" width="90" height="90">
-            </a>
-            <a href="https://www.twitch.tv/kean_esports" target="_blank">
-                <img src="logos/twitchlogo.png" alt="Twitch Logo" class="social-icon" width="90" height="90">
-            </a>
-            <a href="https://www.instagram.com/kean_esports" target="_blank">
-                <img src="logos/instagram.png" alt="Instagram Logo" class="social-icon" width="90" height="90">
-            </a>
-            <a href="https://discord.gg/MqYR638K" target="_blank">
-                <img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="90" height="90">
-            </a>
-        </div>
+        <!-- Carousel -->
+<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <!-- Add your carousel content here -->
+      <img src="logos/KeanEsportsImage.png" alt="Home Page Image" class="main-image">
+    </div>
+  </div>
+  <!-- Navigation arrows -->
+  <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </a>
+</div>
+        <!-- Twitch Embed -->
+        <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+        <div id="player"></div>
+        <script type="text/javascript">
+        var options = {
+            width: "1000px",
+            height: "400px",
+            channel: "Kean_eSports",
+            autoplay: true,
+            parent: ["localhost"]
+        };
+        var player = new Twitch.Player("player", options);
+        player.setVolume(0.5);
+        </script>
     </main>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>

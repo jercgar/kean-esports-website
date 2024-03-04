@@ -1,77 +1,3 @@
-<?php
-session_start();
-
-$servername = "localhost";
-$username = "justin";
-$password = "justin";
-$dbname = "esports";
-
-// Create a connection to the database
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check if the connection was successful
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if (isset($_SESSION['username'])) {
-    $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
-    $logoutOption = '<li><a href="logout.php">Logout</a></li>';
-    $loginOption = '';
-} 
-else {
-    $dailyLogOption = '';
-    $logoutOption = '';
-    $loginOption = '<li><a href="login.php">Login</a></li>';
-}
-
-// Check if the form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
-    $email_discord = $_POST['Email/Discord'];
-    $game = $_POST['Game'];
-    $pc_platform = $_POST['PC Platform'];
-
-    // Construct message to be sent to Discord
-    $message = "New game download request:\n";
-    $message .= "Email/Discord: $email_discord\n";
-    $message .= "Game: $game\n";
-    $message .= "PC Platform: $pc_platform\n";
-
-    // Discord webhook URL
-    $webhookUrl = "https://discord.com/api/webhooks/1209247935720595477/DtnRvHsVgD4yvvuX0AdclgYQECCFWqyFWxkTs5ELSZAtQAlH-_W94eODjFAh2EDdi4_T";
-
-    // Prepare webhook payload
-    $data = array(
-        'content' => $message
-    );
-
-    // Convert payload to JSON
-    $jsonData = json_encode($data);
-
-    // Set up cURL to make POST request to Discord webhook without SSL certificate verification
-    $ch = curl_init($webhookUrl);
-    curl_setopt($ch, CURLOPT_POST, 1);
-    curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); // Disable SSL certificate verification
-
-    // Execute cURL request
-    $response = curl_exec($ch);
-
-    // Check for errors
-    if(curl_errno($ch)) {
-        echo 'Error:' . curl_error($ch);
-    } else {
-        echo 'Message sent to Discord successfully!';
-    }
-
-    // Close cURL session
-    curl_close($ch);
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -89,6 +15,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             padding: 20px; /* Add padding to the header */
             text-align: center; /* Center align the text */
         }
+
+        /* Additional CSS for vertical line */
+        .vertical-line {
+            border-left: 1px solid #ccc;
+            height: 30px; /* Adjust height as needed */
+            margin: 0 10px; /* Adjust margin as needed */
+        }
     </style>
 </head>
 <body>
@@ -97,16 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
+            <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="index.php">Home</a>
+                    <a class="btn btn-secondary" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="availability.php">Computer Availability</a>
+                    <a class="btn btn-secondary" href="availability.php">Computer Availability</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-secondary" href="OperationHours.php">Operation Hours</a>
@@ -121,11 +55,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <a class="btn btn-secondary" href="Esports.html">Esports</a>
                     </li>
                 </ul>
+                <ul class="navbar-nav">
+                    <!-- New list item for social media icons -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/Kean_Esports" target="_blank"><img src="logos/xlogo.png" alt="Twitter Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                    <!-- Vertical line between icons -->
+                    <li class="nav-item vertical-line"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.twitch.tv/kean_esports" target="_blank"><img src="logos/twitchlogo.png" alt="Twitch Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                    <!-- Vertical line between icons -->
+                    <li class="nav-item vertical-line"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.instagram.com/kean_esports" target="_blank"><img src="logos/instagram.png" alt="Instagram Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                    <!-- Vertical line between icons -->
+                    <li class="nav-item vertical-line"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://discord.gg/MqYR638K" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                </ul>
             </div>
         </div>
     </nav>
     <main class="container">
         <section>
+            <div id="submissionMessage" class="mt-3"></div> <!-- Move the submission message here -->
+            <h1>Enter a game you would like installed onto the computers below:</h1>
             <form id="downloadForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="mb-3">
                     <label for="Email/Discord" class="form-label">Discord</label>
@@ -141,12 +98,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="Steam">Steam</option>
                         <option value="Epic">Epic Games</option>
                         <option value="Ubisoft">Ubisoft Connect</option>
+                        <option value="Battle.net">Battle.net</option>
                     </select>
+                </div>
+                <div class="mb-3">
+                    <label for="Additional Info" class="form-label">Additional Information</label>
+                    <textarea class="form-control" id="Additional Info" name="Additional Info" rows="3" placeholder="Enter any additional information here"></textarea>
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>
-            <!-- Message to display upon successful submission -->
-            <div id="submissionMessage" class="mt-3"></div>
         </section>
     </main>
 
@@ -159,7 +119,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             const formData = new FormData(event.target);
             
             // Construct the message content using form data
-            let messageContent = 'New download request:\n';
+            let messageContent = 'New Download Request:\n';
             for (const [name, value] of formData) {
                 messageContent += `${name}: ${value}\n`;
             }
@@ -169,7 +129,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 document.getElementById('submissionMessage').textContent = 'Download request submitted successfully!';
                 document.getElementById('submissionMessage').classList.remove('text-danger');
                 document.getElementById('submissionMessage').classList.add('text-success');
-                // Optionally clear the form fields or perform other actions
+                // Clear the form fields
+                document.getElementById('downloadForm').reset();
             } catch (error) {
                 console.error('Error sending message to Discord:', error.message);
                 document.getElementById('submissionMessage').textContent = 'Failed to submit download request. Please try again later.';
