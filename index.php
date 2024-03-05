@@ -23,24 +23,6 @@ if (isset($_SESSION['username'])) {
     $logoutOption = '';
     $loginOption = '<li class="nav-item"><a class="btn btn-secondary" href="login.php">Login</a></li>';
 }
-
-$sql = "SELECT computer_choice, time_exit FROM daily_log";
-$result = $conn->query($sql);
-
-// Create an array to store computer availability
-$computerAvailability = array();
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $computerChoice = $row["computer_choice"];
-        $timeExit = $row["time_exit"];
-
-        // Set availability based on the presence of time_exit
-        $availability = empty($timeExit) ? "Not Available" : "Available";
-
-        $computerAvailability[$computerChoice] = $availability;
-    }
-}
 ?>
 
 <!DOCTYPE html>
