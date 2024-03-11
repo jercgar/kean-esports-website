@@ -28,7 +28,7 @@
     <header class="container-fluid">
         <h1>Game Download Request Form</h1>
     </header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg" style="background-color: #154360;">
         <div class="container-fluid">
             <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,22 +37,22 @@
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                    <a class="btn btn-secondary" href="index.php">Home</a>
+                    <a class="btn btn-outline-light" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="btn btn-secondary" href="availability.php">Computer Availability</a>
+                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="OperationHours.php">Operation Hours</a>
+                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Rules.php">Rules</a>
+                        <a class="btn btn-outline-light" href="Rules.php">Rules</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="FAQ.php">FAQ</a>
+                        <a class="btn btn-outline-light" href="FAQ.php">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Esports.html">Esports</a>
+                        <a class="btn btn-outline-light" href="Esports.html">Esports</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
@@ -105,11 +105,23 @@
                     <label for="Additional Info" class="form-label">Additional Information</label>
                     <textarea class="form-control" id="Additional Info" name="Additional Info" rows="3" placeholder="Enter any additional information here"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-outline-light">Submit</button>
             </form>
         </section>
     </main>
-
+    <footer class="footer">
+        <div class="container text-center">
+            <!-- Footer Links -->
+            <p>Connect to the rest of Kean:</p>
+            <a href="https://kean.edu" target="_blank">Kean University Website</a>
+            <span class="footer-divider">|</span>
+            <a href="https://keanathletics.com" target="_blank">Kean Athletics</a>
+            <span class="footer-divider">|</span>
+            <a href="https://webreg.kean.edu/WebAdvisor/WebAdvisor?TYPE=M&PID=CORE-WBMAIN&TOKENIDX=1241765240" target="_blank">KeanWISE</a>
+            <span class="footer-divider">|</span>
+            <a href="https://selfservice.kean.edu/Student/" target="_blank">Student Planning</a>
+        </div>
+    </footer>
     <!-- Include Bootstrap JS bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <script>
@@ -156,6 +168,5 @@
                 throw new Error('Failed to send message to Discord');
             }
         };
-    </script>
 </body>
 </html>

@@ -2,7 +2,8 @@
 body {
   font-family: "Times New Roman", Times, serif; /* Adding Times font */
   line-height: 1.6; /* Adjusted line height */
-  background: linear-gradient(to bottom, #74c7f8, #4686fd);
+  background: linear-gradient(to bottom, #258cc7, #2c59ad);
+  background-attachment: fixed;
   color: #000000;
   margin: 0;
   padding: 0;
@@ -28,20 +29,21 @@ li {
 }
 
 a {
-  color: #fafdff;
+  color: #000000;
   text-decoration: none;
 }
 
 a:hover {
-  text-decoration: underline;
+  color: #fff;
 }
+
 
 /* Header Styles */
 header {
   font-family: "Times New Roman", Times, serif; /* Adding Times font */
   background: url('logos/mainstagepic.jpeg');
   background-size: cover;
-  background-color: #ffffff;
+  background-color: #000000;
   color: #fff;
   padding: 20px;
   text-align: center; /* Center align the text */
@@ -52,16 +54,9 @@ header h1 {
   font-size: 36px;
 }
 
-header .game-logo {
-  vertical-align: middle;
-  margin-left: 10px;
-  height: auto;
-  width: auto;
-}
-
 /* Navigation Styles */
 nav {
-  background-color: #eee;
+  background-color: #000000;
   padding: 10px;
   border-bottom: 1px solid #ddd;
 }
@@ -123,4 +118,23 @@ footer p {
 .pagination .current-page {
   background-color: #ffffff;
   color: #fff;
+}
+
+.footer {
+  background-color: #f8f9fa; /* Set background color */
+  padding: 20px 0; /* Add padding */
+  margin-top: 20px; /* Add margin from the content above */
+  color: #333; /* Set text color */
+  text-align: center; /* Center align the text */
+}
+
+.footer a {
+  color: #627286; /* Set link color */
+  text-decoration: none;
+  margin: 0 10px; /* Add margin between links */
+}
+
+.footer a:hover {
+  text-decoration: underline; /* Add underline on hover */
+  color: #007bff; /* Change link color on hover */
 }

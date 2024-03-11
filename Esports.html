@@ -22,7 +22,7 @@
     <header>
         <h1>Kean University eSports Arena</h1>
     </header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg" style="background-color: #154360;">
       <div class="container-fluid">
           <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,13 +31,13 @@
           <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
               <ul class="navbar-nav">
                   <li class="nav-item">
-                  <a class="btn btn-secondary" href="index.php">Home</a>
+                  <a class="btn btn-outline-light" href="index.php">Home</a>
                   </li>
                   <li class="nav-item">
-                      <a class="btn btn-secondary" href="Teams.html">Teams</a>
+                      <a class="btn btn-outline-light" href="Teams.html">Teams</a>
                   </li>
                   <li class="nav-item">
-                    <a class="btn btn-secondary" href="RequestInfo.html">Request Info</a>
+                    <a class="btn btn-outline-light" href="RequestInfo.html">Request Info</a>
                 </li>
               </ul>
               <ul class="navbar-nav">
@@ -64,6 +64,20 @@
           </div>
       </div>
   </nav>
+  <!-- Twitch Embed -->
+  <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
+  <div id="player"></div>
+  <script type="text/javascript">
+  var options = {
+      width: "1000px",
+      height: "400px",
+      channel: "Kean_eSports",
+      autoplay: true,
+      parent: ["localhost"]
+  };
+  var player = new Twitch.Player("player", options);
+  player.setVolume(0.5);
+  </script>
     <main class="container">
       <div class="container">
         <div class="row">
@@ -71,7 +85,7 @@
             <div class="card">
               <div class="card-header" id="headingMonday">
                 <h2 class="mb-0">
-                  <button class="btn btn-link" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMonday" aria-expanded="true" aria-controls="collapseMonday">
+                  <button class="btn btn-outline-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMonday" aria-expanded="true" aria-controls="collapseMonday">
                     Monday
                   </button>
                 </h2>
@@ -92,7 +106,7 @@
             <div class="card">
               <div class="card-header" id="headingTuesday">
                 <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTuesday" aria-expanded="false" aria-controls="collapseTuesday">
+                  <button class="btn btn-outline-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTuesday" aria-expanded="false" aria-controls="collapseTuesday">
                     Tuesday
                   </button>
                 </h2>
@@ -113,7 +127,7 @@
             <div class="card">
               <div class="card-header" id="headingWednesday">
                 <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWednesday" aria-expanded="false" aria-controls="collapseWednesday">
+                  <button class="btn btn-outline-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseWednesday" aria-expanded="false" aria-controls="collapseWednesday">
                     Wednesday
                   </button>
                 </h2>
@@ -133,7 +147,7 @@
             <div class="card">
               <div class="card-header" id="headingThursday">
                 <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThursday" aria-expanded="false" aria-controls="collapseThursday">
+                  <button class="btn btn-outline-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThursday" aria-expanded="false" aria-controls="collapseThursday">
                     Thursday
                   </button>
                 </h2>
@@ -153,7 +167,7 @@
             <div class="card">
               <div class="card-header" id="headingFriday">
                 <h2 class="mb-0">
-                  <button class="btn btn-link collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFriday" aria-expanded="false" aria-controls="collapseFriday">
+                  <button class="btn btn-outline-dark collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFriday" aria-expanded="false" aria-controls="collapseFriday">
                     Friday
                   </button>
                 </h2>
@@ -171,5 +185,18 @@
         </div>
       </div>
     </main>
+    <footer class="footer">
+      <div class="container text-center">
+          <!-- Footer Links -->
+          <p>Connect to the rest of Kean:</p>
+          <a href="https://kean.edu" target="_blank">Kean University Website</a>
+          <span class="footer-divider">|</span>
+          <a href="https://keanathletics.com" target="_blank">Kean Athletics</a>
+          <span class="footer-divider">|</span>
+          <a href="https://webreg.kean.edu/WebAdvisor/WebAdvisor?TYPE=M&PID=CORE-WBMAIN&TOKENIDX=1241765240" target="_blank">KeanWISE</a>
+          <span class="footer-divider">|</span>
+          <a href="https://selfservice.kean.edu/Student/" target="_blank">Student Planning</a>
+      </div>
+  </footer>
 </body>
 </html>

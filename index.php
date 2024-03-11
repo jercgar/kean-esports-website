@@ -1,29 +1,4 @@
-<?php
-session_start();
-
-$servername = "localhost";
-$username = "justin";
-$password = "justin";
-$dbname = "esports";
-
-// Create a connection to the database
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check if the connection was successful
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if (isset($_SESSION['username'])) {
-    $dailyLogOption = '<li class="nav-item"><a class="btn btn-secondary" href="DailyLog.php">Daily Log</a></li>';
-    $logoutOption = '<li class="nav-item"><a class="btn btn-secondary" href="logout.php">Logout</a></li>';
-    $loginOption = '';
-} else {
-    $dailyLogOption = '';
-    $logoutOption = '';
-    $loginOption = '<li class="nav-item"><a class="btn btn-secondary" href="login.php">Login</a></li>';
-}
-?>
+<?php include 'dbtab.php'; ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,9 +9,6 @@ if (isset($_SESSION['username'])) {
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap">
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-eMNCOe7tC1doHpGoJtKh7z7lGz7fuP4F8nfdFvAOA6Gg/z6Y5J6XqqyGXYM2ntXU" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0v8FqFjcJ6pajs/rfdfs3SO+kD4Ck5BdPtF+to8xMp9Mvc" crossorigin="anonymous"></script>
-    <meta http-equiv="refresh" content="60"> <!-- Auto-refresh every 60 seconds -->
     <style>
         /* Additional CSS for header */
         header {
@@ -58,7 +30,7 @@ if (isset($_SESSION['username'])) {
     <header>
         <h1>Kean University eSports Arena</h1>
     </header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg" style="background-color: #154360;">
         <div class="container-fluid">
             <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -68,25 +40,26 @@ if (isset($_SESSION['username'])) {
                 <ul class="navbar-nav">
                     <?php echo $loginOption; ?>
                     <li class="nav-item">
-                    <a class="btn btn-secondary" href="availability.php">Computer Availability</a>
+                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
                     </li>
                     <?php echo $dailyLogOption; ?>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="OperationHours.php">Operation Hours</a>
+                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Download_Request_Form.php">Game Download Request</a>
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Rules.php">Rules</a>
+                        <a class="btn btn-outline-light" href="Rules.php">Rules</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="FAQ.php">FAQ</a>
+                        <a class="btn btn-outline-light" href="FAQ.php">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Esports.html">Esports</a>
+                        <a class="btn btn-outline-light" href="Esports.html">Esports</a>
                     </li>
                     <?php echo $logoutOption; ?>
+                    <?php echo $test; ?>
                 </ul>
                 <ul class="navbar-nav">
                     <!-- New list item for social media icons -->
@@ -113,39 +86,95 @@ if (isset($_SESSION['username'])) {
         </div>
     </nav>
     <main class="home-page-main">
-        <!-- Carousel -->
-<div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
-  <div class="carousel-inner">
-    <div class="carousel-item active">
-      <!-- Add your carousel content here -->
-      <img src="logos/KeanEsportsImage.png" alt="Home Page Image" class="main-image">
-    </div>
-  </div>
-  <!-- Navigation arrows -->
-  <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-  </a>
-  <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-  </a>
-</div>
-        <!-- Twitch Embed -->
-        <script src= "https://player.twitch.tv/js/embed/v1.js"></script>
-        <div id="player"></div>
-        <script type="text/javascript">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="youtube-video-1"></div>
+                            <p class="card-text">Witness the Grand Opening of Kean University's eSports Arena</p>
+                            <a href="https://youtu.be/LVuf_rm7TLg?si=xzkmi9TZGhKqfihT" class="btn btn-outline-primary">Click Here</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <div id="youtube-video-2"></div>
+                            <p class="card-text">Let's see how Kean University is changing the playing field with eSports</p>
+                            <a href="https://youtu.be/hGYbm2clw8Q?si=r5NjGlVYkHPpuvHM" class="btn btn-outline-primary">Click Here</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <div class="container text-center">
+            <!-- Footer Links -->
+            <p>Connect to the rest of Kean:</p>
+            <a href="https://kean.edu" target="_blank">Kean University Website</a>
+            <span class="footer-divider">|</span>
+            <a href="https://keanathletics.com" target="_blank">Kean Athletics</a>
+            <span class="footer-divider">|</span>
+            <a href="https://webreg.kean.edu/WebAdvisor/WebAdvisor?TYPE=M&PID=CORE-WBMAIN&TOKENIDX=1241765240" target="_blank">KeanWISE</a>
+            <span class="footer-divider">|</span>
+            <a href="https://selfservice.kean.edu/Student/" target="_blank">Student Planning</a>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
         var options = {
-            width: "1000px",
-            height: "400px",
+            width: "100%",
+            height: "400",
             channel: "Kean_eSports",
             autoplay: true,
             parent: ["localhost"]
         };
         var player = new Twitch.Player("player", options);
         player.setVolume(0.5);
-        </script>
-    </main>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        // YouTube API callback function
+        function onYouTubeIframeAPIReady() {
+            var player1 = new YT.Player('youtube-video-1', {
+                height: '315',
+                width: '100%',
+                videoId: 'LVuf_rm7TLg',
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+                
+            });
+
+            var player2 = new YT.Player('youtube-video-2', {
+                height: '315',
+                width: '100%',
+                videoId: 'hGYbm2clw8Q',
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+
+            var currentPlayer;
+
+            function onPlayerReady(event) {
+                currentPlayer = event.target;
+                currentPlayer.mute();
+                currentPlayer.playVideo();
+            }
+
+            function onPlayerStateChange(event) {
+                if (event.data == YT.PlayerState.ENDED) {
+                    // Move to the next video in the carousel
+                    $('#carouselExampleSlidesOnly').carousel('next');
+                }
+            }
+        }
+    </script>
+    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>

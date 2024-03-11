@@ -19,13 +19,13 @@ if ($conn->connect_error) {
 }
 
 if (isset($_SESSION['username'])) {
-    $dailyLogOption = '<li class="nav-item"><a class="btn btn-secondary" href="DailyLog.php">Daily Log</a></li>';
-    $logoutOption = '<li class="nav-item"><a class="btn btn-secondary" href="logout.php">Logout</a></li>';
+    $dailyLogOption = '<li class="nav-item"><a class="btn btn-outline-warning" href="DailyLog.php">Daily Log</a></li>';
+    $logoutOption = '<li class="nav-item"><a class="btn btn-outline-danger" href="logout.php">Logout</a></li>';
     $loginOption = '';
 } else {
     $dailyLogOption = '';
     $logoutOption = '';
-    $loginOption = '<li class="nav-item"><a class="btn btn-secondary" href="login.php">Login</a></li>';
+    $loginOption = '<li class="nav-item"><a class="btn btn-outline-success href="login.php">Login</a></li>';
 }
 
 // Initialize arena status if not set in session
@@ -148,7 +148,7 @@ if ($result->num_rows > 0) {
     <header>
         <h1>Computer Availability</h1>
     </header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg" style="background-color: #154360;">
         <div class="container-fluid">
             <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -157,24 +157,24 @@ if ($result->num_rows > 0) {
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                    <a class="btn btn-secondary" href="index.php">Home</a>
+                    <a class="btn btn-outline-light" href="index.php">Home</a>
                     </li>
                     <?php echo $loginOption; ?>
                     <?php echo $dailyLogOption; ?>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="OperationHours.php">Operation Hours</a>
+                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Download_Request_Form.php">Game Download Request</a>
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Rules.php">Rules</a>
+                        <a class="btn btn-outline-light" href="Rules.php">Rules</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="FAQ.php">FAQ</a>
+                        <a class="btn btn-outline-light" href="FAQ.php">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Esports.html">Esports</a>
+                        <a class="btn btn-outline-light" href="Esports.html">Esports</a>
                     </li>
                     <?php echo $logoutOption; ?>
                 </ul>

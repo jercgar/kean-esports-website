@@ -56,7 +56,7 @@ else {
     <header>
         <h1>Rules</h1>
     </header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg" style="background-color: #154360;">
         <div class="container-fluid">
             <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,24 +66,23 @@ else {
                 <ul class="navbar-nav">
                     <?php echo $loginOption; ?>
                     <li class="nav-item">
-                    <a class="btn btn-secondary" href="index.php">Home</a>
+                    <a class="btn btn-outline-light" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="btn btn-secondary" href="availability.php">Computer Availability</a>
+                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="OperationHours.php">Operation Hours</a>
+                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Download_Request_Form.php">Game Download Request</a>
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="FAQ.php">FAQ</a>
+                        <a class="btn btn-outline-light" href="FAQ.php">FAQ</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-secondary" href="Esports.html">Esports</a>
+                        <a class="btn btn-outline-light" href="Esports.html">Esports</a>
                     </li>
-                    <?php echo $logoutOption; ?>
                 </ul>
                 <ul class="navbar-nav">
                     <!-- New list item for social media icons -->
@@ -113,10 +112,11 @@ else {
         <h2>Rules for Open Play</h2>
         <p>Here are the rules for open play at the Kean University eSports Arena:</p>
         <ul>
-            <li>Respect other players and staff.</li>
+            <li>Respect other students and staff.</li>
             <li>No food or drinks at the gaming stations.</li>
             <li>Use equipment responsibly.</li>
-            <li>If using your own equipment, make sure to replug everything back in.</li>
+            <li>If using your own equipment, make sure to replug all arena equipment back in.</li>
+            <li>No harsh or offensive language for any reason.</li>
         </ul>
         
         <h2>Rules for Competitive Spectating</h2>
@@ -126,7 +126,21 @@ else {
             <li>No distracting the players during matches</li>
             <li>Do not interrupt or distract the casters during game time.</li>
             <li>Follow staff instructions at all times.</li>
+            <li>Pictures and Videos are allowed but be mindful of the players competing.</li>
         </ul>
     </main>
+    <footer class="footer">
+        <div class="container text-center">
+            <!-- Footer Links -->
+            <p>Connect to the rest of Kean:</p>
+            <a href="https://kean.edu" target="_blank">Kean University Website</a>
+            <span class="footer-divider">|</span>
+            <a href="https://keanathletics.com" target="_blank">Kean Athletics</a>
+            <span class="footer-divider">|</span>
+            <a href="https://webreg.kean.edu/WebAdvisor/WebAdvisor?TYPE=M&PID=CORE-WBMAIN&TOKENIDX=1241765240" target="_blank">KeanWISE</a>
+            <span class="footer-divider">|</span>
+            <a href="https://selfservice.kean.edu/Student/" target="_blank">Student Planning</a>
+        </div>
+    </footer>
 </body>
 </html>
