@@ -1,8 +1,8 @@
 /* General Styles */
 body {
-  font-family: "Times New Roman", Times, serif; /* Adding Times font */
+  font-family: "Barlow",sans-serif;/* Adding Times font */
   line-height: 1.6; /* Adjusted line height */
-  background: linear-gradient(to bottom, #258cc7, #2c59ad);
+  background: linear-gradient(to bottom, #fafafa, #153570);
   background-attachment: fixed;
   color: #000000;
   margin: 0;
@@ -137,4 +137,9 @@ footer p {
 .footer a:hover {
   text-decoration: underline; /* Add underline on hover */
   color: #007bff; /* Change link color on hover */
+}
+
+#player {
+  margin: 0 auto; /* Center the Twitch player horizontally */
+  text-align: center; /* Center the content inside the div */
 }

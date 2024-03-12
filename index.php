@@ -58,8 +58,8 @@
                     <li class="nav-item">
                         <a class="btn btn-outline-light" href="Esports.html">Esports</a>
                     </li>
+                    <?php echo $accountManagerOption; ?>
                     <?php echo $logoutOption; ?>
-                    <?php echo $test; ?>
                 </ul>
                 <ul class="navbar-nav">
                     <!-- New list item for social media icons -->
@@ -109,6 +109,7 @@
             </div>
         </div>
     </main>
+    <br><br><br><br><br><br><br>
     <footer class="footer">
         <div class="container text-center">
             <!-- Footer Links -->

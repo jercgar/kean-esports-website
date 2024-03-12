@@ -109,25 +109,23 @@ else {
         </div>
     </nav>
     <main>
+    <br>
         <h2>Rules for Open Play</h2>
         <p>Here are the rules for open play at the Kean University eSports Arena:</p>
-        <ul>
             <li>Respect other students and staff.</li>
             <li>No food or drinks at the gaming stations.</li>
             <li>Use equipment responsibly.</li>
             <li>If using your own equipment, make sure to replug all arena equipment back in.</li>
             <li>No harsh or offensive language for any reason.</li>
-        </ul>
-        
+        <br>
         <h2>Rules for Competitive Spectating</h2>
         <p>For competitive spectating, please follow these rules:</p>
-        <ul>
             <li>Respectful behavior in the spectating area.</li>
             <li>No distracting the players during matches</li>
             <li>Do not interrupt or distract the casters during game time.</li>
             <li>Follow staff instructions at all times.</li>
             <li>Pictures and Videos are allowed but be mindful of the players competing.</li>
-        </ul>
+        <br><br><br><br>
     </main>
     <footer class="footer">
         <div class="container text-center">

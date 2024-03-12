@@ -22,6 +22,10 @@
             height: 30px; /* Adjust height as needed */
             margin: 0 10px; /* Adjust margin as needed */
         }
+         /* Additional CSS for submission message */
+         #submissionMessage {
+            font-weight: bold; /* Make the text bold */
+        }
     </style>
 </head>
 <body>
@@ -79,9 +83,9 @@
             </div>
         </div>
     </nav>
+    <br>
     <main class="container">
         <section>
-            <div id="submissionMessage" class="mt-3"></div> <!-- Move the submission message here -->
             <h1>Enter a game you would like installed onto the computers below:</h1>
             <form id="downloadForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
                 <div class="mb-3">
@@ -106,9 +110,23 @@
                     <textarea class="form-control" id="Additional Info" name="Additional Info" rows="3" placeholder="Enter any additional information here"></textarea>
                 </div>
                 <button type="submit" class="btn btn-outline-light">Submit</button>
+                <!-- Toast container -->
+                <div class="toast-container position-fixed bottom-0 end-0 p-3">
+                    <!-- Toast -->
+                    <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+                        <div class="toast-header">
+                            <strong class="me-auto">Success</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+                        <div class="toast-body">
+                            Download request submitted successfully!
+                        </div>
+                    </div>
+                </div>
             </form>
         </section>
     </main>
+    <br><br><br><br><br>
     <footer class="footer">
         <div class="container text-center">
             <!-- Footer Links -->
@@ -138,9 +156,10 @@
 
             try {
                 await sendMessageToDiscord(messageContent);
-                document.getElementById('submissionMessage').textContent = 'Download request submitted successfully!';
-                document.getElementById('submissionMessage').classList.remove('text-danger');
-                document.getElementById('submissionMessage').classList.add('text-success');
+                // Show the toast
+                var toastElement = document.querySelector('.toast');
+                var toast = new bootstrap.Toast(toastElement);
+                toast.show();
                 // Clear the form fields
                 document.getElementById('downloadForm').reset();
             } catch (error) {
@@ -168,5 +187,6 @@
                 throw new Error('Failed to send message to Discord');
             }
         };
+    </script>
 </body>
 </html>

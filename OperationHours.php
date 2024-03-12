@@ -108,16 +108,18 @@ else {
         </div>
     </nav>
     <main>
+        <br>
         <h2>Open Play Hours</h2>
         <p>Our eSports Arena is open during the following hours for open play:</p>
         
-            <li>Monday: 12:00 PM - 6:00 PM</li>
-           <li>Tuesday: 12:00 PM - 6:00 PM</li>
-           <li>Wednesday: 12:00 PM - 6:00 PM</li>
-           <li>Thursday: 12:00 PM - 6:00 PM</li>
-           <li>Friday: 12:00 PM - 6:00 PM</li>
+            <li>Monday: 11:00 AM - 6:00 PM</li>
+           <li>Tuesday: 11:00 AM - 6:00 PM</li>
+           <li>Wednesday: 11:00 AM - 6:00 PM</li>
+           <li>Thursday: 11:00 AM - 6:00 PM</li>
+           <li>Friday: 11:00 AM - 6:00 PM</li>
            <li>Saturday: CLOSED</li>
            <li>Sunday: CLOSED</li>
+           <br>
         
 
         <h2>Competitive Play Hours</h2>
@@ -126,7 +128,7 @@ else {
             <li>Monday: 8:00 PM - 10:00 PM</li>
            <li>Tuesday: 8:00 PM - 10:00 PM</li>
            <li>Wednesday: 8:00 PM - 10:00 PM</li>
-           <li>Thursday: CLOSED</li>
+           <li>Thursday: No Games Played at Arena</li>
            <li>Friday: 8:00 PM - 10:00 PM</li>
            <li>Saturday: CLOSED</li>
            <li>Sunday: CLOSED </li>

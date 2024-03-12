@@ -196,17 +196,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <br>
             <label for="date"><?php date_default_timezone_set('US/Eastern'); echo "Date:". date('m/d/Y'); ?></label>
             <br><br>
-            <label for="first_name">First Name:</label>
+            <label for="first_name">First Name</label>
+            <br>
             <input type="text" id="first_name" name="first_name" required>
-            <label for="last_name">Last Name:</label>
+            <br><br>
+            <label for="last_name">Last Name</label>
+            <br>
             <input type= "text" id="last_name" name="last_name" required>
             <br><br>
-            <label for="computer_choice">Computer Choice (1-23):</label>
+            <label for="computer_choice">Computer Choice (1-23)</label>
+            <br>
             <input type="number" id="computer_choice" name="computer_choice" required>
-            <label for="student_id">Student ID:</label>
+            <br><br>
+            <label for="student_id">Student ID</label>
+            <br>
             <input type="number" id="student_id" name="student_id" required>
             <br><br>
-            <input type="submit" value="Submit">
+            <button type="submit" class="btn btn-outline-light">Submit</button>
         </form>
         <?php if (!empty($error_message)): ?>
             <div class="error"><?php echo $error_message; ?></div>

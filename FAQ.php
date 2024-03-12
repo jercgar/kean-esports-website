@@ -109,6 +109,7 @@ else {
         </div>
     </nav>
     <main>
+    <br>
         <ul class="faq-list">
             <li>
                 <h3>Are we allowed to bring our own equipment?</h3>
@@ -116,7 +117,7 @@ else {
             </li>
             <li>
                 <h3>Who is allowed to be in the main stage area?</h3>
-                <p>Only the students who are currently on one of our eSports teams are allowed in the main stage. All are welcome to be spectators during game time.</p>
+                <p>Only the students/coaches who are currently on one of our eSports teams are allowed in the main stage. All are welcome to be spectators during game time.</p>
             </li>
             <li>
                 <h3>How can I get onto one of the teams?</h3>
@@ -132,6 +133,7 @@ else {
             </li>
         </ul>
     </main>
+    <br><br><br><br><br><br>
     <footer class="footer">
         <div class="container text-center">
             <!-- Footer Links -->

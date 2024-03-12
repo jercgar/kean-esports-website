@@ -1,28 +1,5 @@
 <?php
-session_start();
-
-// Database connection parameters
-$servername = "localhost";
-$username = "justin";
-$password = "justin";
-$dbname = "esports";
-
-// Create a connection to the database
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check if the connection was successful
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if (isset($_SESSION['username'])) {
-    $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
-    $logoutOption = '<li><a href="logout.php">Logout</a></li>';
-} 
-else {
-    $dailyLogOption = '';
-    $logoutOption = '';
-}
+include 'dbtab.php';
 
 $error_message = "";
 

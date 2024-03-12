@@ -19,7 +19,7 @@ if ($conn->connect_error) {
 }
 
 if (isset($_SESSION['username'])) {
-    $dailyLogOption = '<li class="nav-item"><a class="btn btn-outline-warning" href="DailyLog.php">Daily Log</a></li>';
+    $dailyLogOption = '<li class="nav-item"><a class="btn btn-outline-light" href="DailyLog.php">Daily Log</a></li>';
     $logoutOption = '<li class="nav-item"><a class="btn btn-outline-danger" href="logout.php">Logout</a></li>';
     $loginOption = '';
 } else {
