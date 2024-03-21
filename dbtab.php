@@ -36,11 +36,13 @@ if (isset($_SESSION['username'])) {
         $dailyLogOption = '<li class="nav-item"><a class="btn btn-outline-light" href="DailyLog.php">Daily Log</a></li>';
         $logoutOption = '<li class="nav-item"><a class="btn btn-outline-danger" href="logout.php">Logout</a></li>';
         $accountManagerOption = '<li class="nav-item"><a class="btn btn-outline-light" href="Account_Manager.php">Accounts Manager</a></li>';
+        $historyOption = '<li class="nav-item"><a class="btn btn-outline-light" href="history.php">Daily Log History</a></li>';
         $loginOption = '';
     } 
     elseif ($userRole == 'worker') {
         $dailyLogOption = '<li class="nav-item"><a class="btn btn-outline-light" href="DailyLog.php">Daily Log</a></li>';
         $logoutOption = '<li class="nav-item"><a class="btn btn-outline-danger" href="logout.php">Logout</a></li>';
+        $historyOption = '<li class="nav-item"><a class="btn btn-outline-light" href="history.php">Daily Log History</a></li>';
         $accountManagerOption = '';
         $loginOption = '';
     }
@@ -50,6 +52,7 @@ if (isset($_SESSION['username'])) {
         $dailyLogOption = '';
         $logoutOption = '';
         $accountManagerOption = '';
+        $historyOption = '';
         $loginOption = '<li class="nav-item"><a class="btn btn-outline-success" href="login.php">Login</a></li>';
     }
 ?>

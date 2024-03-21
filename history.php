@@ -28,7 +28,7 @@
 </head>
 <body>
     <header>
-        <h1>Kean University eSports Arena</h1>
+        <h1>Daily Log History</h1>
     </header>
     <nav class="navbar navbar-expand-lg" style="background-color: #154360;">
         <div class="container-fluid">
@@ -38,6 +38,9 @@
             </button>
             <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
                 <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-outline-light" href="index.php">Home</a>
+                    </li>
                     <?php echo $loginOption; ?>
                     <li class="nav-item">
                     <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
@@ -59,7 +62,6 @@
                         <a class="btn btn-outline-light" href="Esports.html">Esports</a>
                     </li>
                     <?php echo $accountManagerOption; ?>
-                    <?php echo $historyOption; ?>
                     <?php echo $logoutOption; ?>
                 </ul>
                 <ul class="navbar-nav">
@@ -86,31 +88,46 @@
             </div>
         </div>
     </nav>
-    <main class="home-page-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="youtube-video-1"></div>
-                            <p class="card-text">Witness the Grand Opening of Kean University's eSports Arena</p>
-                            <a href="https://youtu.be/LVuf_rm7TLg?si=xzkmi9TZGhKqfihT" class="btn btn-outline-primary">Click Here</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="youtube-video-2"></div>
-                            <p class="card-text">Let's see how Kean University is changing the playing field with eSports</p>
-                            <a href="https://youtu.be/hGYbm2clw8Q?si=r5NjGlVYkHPpuvHM" class="btn btn-outline-primary">Click Here</a>
-                        </div>
-                    </div>
+    <div class="tab-content mt-3">
+            <div class="tab-pane fade show active" id="dailyLogHistory" role="tabpanel" aria-labelledby="dailyLogHistory-tab">
+                <br>
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Computer Choice</th>
+                                <th>Time Entered</th>
+                                <th>Time Exit</th>
+                                <th>Student ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            // Retrieve data from log_table
+                            $sql = "SELECT CONCAT(first_name, ' ', last_name) AS full_name, computer_choice, dte, time_exit, student_id FROM log_table";
+                            $result = $conn->query($sql);
+                            if ($result->num_rows > 0) {
+                                while ($row = $result->fetch_assoc()) {
+                                    echo "<tr>";
+                                    echo "<td>" . $row["full_name"] . "</td>";
+                                    echo "<td>" . $row["computer_choice"] . "</td>";
+                                    echo "<td>" . $row["dte"] . "</td>";
+                                    echo "<td>" . ($row["time_exit"] !== null ? $row["time_exit"] : "???") . "</td>";
+                                    echo "<td>" . $row["student_id"] . "</td>";
+                                    echo "</tr>";
+                                }
+                            } else {
+                                echo "<tr><td colspan='5'>No records found</td></tr>";
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
+            <!-- Add more tab panes here -->
         </div>
-    </main>
-    <br><br><br><br><br><br><br>
+    </div>
     <footer class="footer">
         <div class="container text-center">
             <!-- Footer Links -->
@@ -127,56 +144,5 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-        var options = {
-            width: "100%",
-            height: "400",
-            channel: "Kean_eSports",
-            autoplay: true,
-            parent: ["localhost"]
-        };
-        var player = new Twitch.Player("player", options);
-        player.setVolume(0.5);
-
-        // YouTube API callback function
-        function onYouTubeIframeAPIReady() {
-            var player1 = new YT.Player('youtube-video-1', {
-                height: '315',
-                width: '100%',
-                videoId: 'LVuf_rm7TLg',
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-                
-            });
-
-            var player2 = new YT.Player('youtube-video-2', {
-                height: '315',
-                width: '100%',
-                videoId: 'hGYbm2clw8Q',
-                events: {
-                    'onReady': onPlayerReady,
-                    'onStateChange': onPlayerStateChange
-                }
-            });
-
-            var currentPlayer;
-
-            function onPlayerReady(event) {
-                currentPlayer = event.target;
-                currentPlayer.mute();
-                currentPlayer.playVideo();
-            }
-
-            function onPlayerStateChange(event) {
-                if (event.data == YT.PlayerState.ENDED) {
-                    // Move to the next video in the carousel
-                    $('#carouselExampleSlidesOnly').carousel('next');
-                }
-            }
-        }
-    </script>
-    <script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>

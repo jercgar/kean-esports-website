@@ -25,7 +25,7 @@ if (isset($_SESSION['username'])) {
 } else {
     $dailyLogOption = '';
     $logoutOption = '';
-    $loginOption = '<li class="nav-item"><a class="btn btn-outline-success href="login.php">Login</a></li>';
+    $loginOption = '<li class="nav-item"><a class="btn btn-outline-success" href="login.php">Login</a></li>';
 }
 
 // Initialize arena status if not set in session
@@ -37,13 +37,17 @@ if (!isset($_SESSION['arena_status'])) {
 if (isset($_SESSION['username']) && isset($_POST['toggleStatus'])) {
     $_SESSION['arena_status'] = ($_SESSION['arena_status'] == "Arena closed") ? "Arena open" : "Arena closed";
 
-    // Delete records from daily log table based on arena status
+    // Move entries to history table if the arena is closing
     if ($_SESSION['arena_status'] == "Arena closed") {
-        $deleteSql = "DELETE FROM daily_log WHERE time_exit IS NOT NULL";
-    } else {
-        $deleteSql = "DELETE FROM daily_log WHERE time_exit IS NULL";
+        $moveEntriesSql = "INSERT INTO log_table (id, first_name, last_name, computer_choice, time_entered, time_exit, student_id, dte)
+                           SELECT id, first_name, last_name, computer_choice, time_entered, time_exit, student_id, dte
+                           FROM daily_log";
+        $conn->query($moveEntriesSql);
     }
-    $conn->query($deleteSql);
+
+    // Clear active table
+    $clearSql = "DELETE FROM daily_log";
+    $conn->query($clearSql);
 
     // Redirect to the same page to prevent form resubmission
     header("Location: " . $_SERVER['REQUEST_URI']);
@@ -228,7 +232,7 @@ if ($result->num_rows > 0) {
             if ("<?php echo $_SESSION['arena_status']; ?>" === "Arena closed") {
                 return true; // No need for confirmation if the arena is already closed
             }
-            return confirm("WARNING: ALL RECORDS IN THE DAILY LOG TABLE WILL BE ERASED AFTER TOGGLING. ONLY TOGGLE AT OPEN TIME AND TOGGLE AT CLOSING TIME. Are you sure you want to continue?");
+            return confirm("WARNING: ALL RECORDS IN THE DAILY LOG TABLE WILL BE ERASED AND MOVED TO THE DAILY LOG HISTORY TABLE AFTER TOGGLING. ONLY TOGGLE AT OPEN TIME AND TOGGLE AT CLOSING TIME. ARE YOU SURE YOU WANT TO CONTINUE?");
         }
     </script>
 </body>

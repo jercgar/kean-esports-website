@@ -90,7 +90,7 @@ $result = $conn->query($sql);
 </head>
 <body>
 <header>
-        <h1>Kean University eSports Arena</h1>
+        <h1>Account Manager</h1>
     </header>
     <nav class="navbar navbar-expand-lg" style="background-color: #154360;">
         <div class="container-fluid">
@@ -150,7 +150,7 @@ $result = $conn->query($sql);
         </div>
     </nav>
     <div class="container">
-        <h1>Account Manager</h1>
+        <br>
         <button class="btn btn-outline-dark mb-3" data-bs-toggle="modal" data-bs-target="#createAccountModal">Create Account</button>
 
         <!-- Display workers table -->

@@ -40,7 +40,7 @@ a:hover {
 
 /* Header Styles */
 header {
-  font-family: "Times New Roman", Times, serif; /* Adding Times font */
+  font-family: "Barlow",sans-serif; /* Adding Times font */
   background: url('logos/mainstagepic.jpeg');
   background-size: cover;
   background-color: #000000;
