@@ -1,32 +1,4 @@
-<?php
-session_start();
-
-$servername = "localhost";
-$username = "justin";
-$password = "justin";
-$dbname = "esports";
-
-// Create a connection to the database
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check if the connection was successful
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if (isset($_SESSION['username'])) {
-    $dailyLogOption = '<li class="nav-item"><a class="btn btn-outline-light" href="DailyLog.php">Daily Log</a></li>';
-    $logoutOption = '<li class="nav-item"><a class="btn btn-outline-danger" href="logout.php">Logout</a></li>';
-    $loginOption = '';
-} else {
-    $dailyLogOption = '';
-    $logoutOption = '';
-    $loginOption = '<li class="nav-item"><a class="btn btn-outline-success" href="login.php">Login</a></li>';
-}
+<?php include 'dbtab.php';
 
 // Initialize arena status if not set in session
 if (!isset($_SESSION['arena_status'])) {
@@ -163,13 +135,17 @@ if ($result->num_rows > 0) {
                     <li class="nav-item">
                     <a class="btn btn-outline-light" href="index.php">Home</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="AboutUs.html">About</a>
+                    </li>
                     <?php echo $loginOption; ?>
                     <?php echo $dailyLogOption; ?>
+
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
+                        <a class="btn btn-outline-light" href="OperationHours.php">Hours</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Download Request</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-light" href="Rules.php">Rules</a>

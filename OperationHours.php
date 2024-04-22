@@ -68,10 +68,13 @@ else {
                     <a class="btn btn-outline-light" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
+                        <a class="btn btn-outline-light" href="AboutUs.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
+                    <a class="btn btn-outline-light" href="availability.php">PC Availability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Download Request</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-light" href="Rules.php">Rules</a>

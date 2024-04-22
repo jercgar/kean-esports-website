@@ -1,6 +1,6 @@
 /* General Styles */
 body {
-  font-family: "Barlow",sans-serif;/* Adding Times font */
+  font-family: "Barlow",sans-serif;
   line-height: 1.6; /* Adjusted line height */
   background: linear-gradient(to bottom, #fafafa, #153570);
   background-attachment: fixed;
@@ -40,7 +40,7 @@ a:hover {
 
 /* Header Styles */
 header {
-  font-family: "Barlow",sans-serif; /* Adding Times font */
+  font-family: "Barlow",sans-serif; 
   background: url('logos/mainstagepic.jpeg');
   background-size: cover;
   background-color: #000000;

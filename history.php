@@ -43,14 +43,14 @@
                     </li>
                     <?php echo $loginOption; ?>
                     <li class="nav-item">
-                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
+                    <a class="btn btn-outline-light" href="availability.php">PC Availability</a>
                     </li>
                     <?php echo $dailyLogOption; ?>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
+                        <a class="btn btn-outline-light" href="OperationHours.php">Hours</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Download Request</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-light" href="Rules.php">Rules</a>
@@ -91,6 +91,29 @@
     <div class="tab-content mt-3">
             <div class="tab-pane fade show active" id="dailyLogHistory" role="tabpanel" aria-labelledby="dailyLogHistory-tab">
                 <br>
+                <form id="search_form" method="post" onchange="showCalender()">
+                    <select name="search_criteria">
+                        <option value="computer">Computer Number</option>
+                        <option value="date">Date</option>
+                    </select>
+                    <input type="text" name="search_query" placeholder="Search...">
+                    <button type="submit">Search</button>
+                    <button type="button" onclick="window.location.href=window.location.href">Clear</button>
+                </form>
+
+                <script>
+                    function showCalender() {
+                        var search_criteria = document.getElementsByName("search_criteria")[0].value;
+                        var searchInput = document.getElementsByName("search_query")[0];
+    
+                        if (search_criteria === "date") {
+                            searchInput.type = "date";
+                        } else {
+                            searchInput.type = "text";
+                        }
+                    }
+                </script>
+
                 <div class="table-responsive">
                     <table class="table table-striped">
                         <thead>
@@ -102,10 +125,23 @@
                                 <th>Student ID</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <body>
                             <?php
                             // Retrieve data from log_table
+                            // Fetch search query and criteria from the form
                             $sql = "SELECT CONCAT(first_name, ' ', last_name) AS full_name, computer_choice, dte, time_exit, student_id FROM log_table";
+
+                           if ($_SERVER["REQUEST_METHOD"] == "POST") {     
+                                $search_query = $_POST['search_query'];
+                                $search_criteria = $_POST['search_criteria'];
+                                // Construct SQL query based on selected criteria
+
+                                if ($search_criteria === "computer") {
+                                    $sql .= " WHERE computer_choice LIKE '%$search_query%'";
+                                } elseif ($search_criteria === "date") {
+                                    $sql .= " WHERE dte LIKE '%$search_query%'";
+                                }
+                            }
                             $result = $conn->query($sql);
                             if ($result->num_rows > 0) {
                                 while ($row = $result->fetch_assoc()) {
@@ -121,13 +157,14 @@
                                 echo "<tr><td colspan='5'>No records found</td></tr>";
                             }
                             ?>
-                        </tbody>
+                        </body>
                     </table>
                 </div>
             </div>
             <!-- Add more tab panes here -->
         </div>
     </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br>
     <footer class="footer">
         <div class="container text-center">
             <!-- Footer Links -->

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kean University eSports Arena</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <style>
+        /* Additional CSS for header */
+        header {
+            background-color: #007bff; /* Bootstrap primary color */
+            color: #fff; /* White text */
+            padding: 20px; /* Add padding to the header */
+            text-align: center; /* Center align the text */
+        }
+
+        /* Additional CSS for vertical line */
+        .vertical-line {
+            border-left: 1px solid #ccc;
+            height: 30px; /* Adjust height as needed */
+            margin: 0 10px; /* Adjust margin as needed */
+        }
+        
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 100px auto;
+}
+
+.container {
+  padding: 10px 50px;
+  position: relative;
+  width: 50%;
+  animation: movedown 1s linear forwards;
+  opacity: 0;
+}
+@keyframes movedown {
+  0% {
+    opacity: 1;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+.container:nth-child(1) {
+  animation-delay: 0s;
+}
+.container:nth-child(2) {
+  animation-delay: 1.5s;
+}
+.container:nth-child(3) {
+  animation-delay: 2.5s;
+}
+.container:nth-child(4) {
+  animation-delay: 3.5s;
+}
+.container:nth-child(5) {
+  animation-delay: 5s;
+}
+
+
+.text-box {
+  padding: 20px 30px;
+  background: #fff;
+  position: relative;
+  border-radius: 6px;
+  font-size: 15px;
+}
+
+.left-container {
+  left: 25%;
+}
+
+.right-container {
+  right: 25%;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: #fff;
+  top: 0;
+  left: 50%;
+  margin-left: -3px;
+  z-index: -1;
+  animation: moveline 6s linear forwards;
+}
+@keyframes moveline {
+  0% {
+    height: 0;
+  }
+  100% {
+    height: 100;
+  }
+}
+
+.left-container-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid #fff;
+  right: -15px;
+}
+
+.right-container-arrow {
+  height: 0;
+  width: 0;
+  position: absolute;
+  top: 28px;
+  z-index: 1;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #fff;
+  left: -15px;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Kean University eSports Arena</h1>
+    </header>
+    <nav class="navbar navbar-expand-lg" style="background-color: #154360;">
+        <div class="container-fluid">
+            <a class="navbar-brand"><img src="logos/KeanEsportsLogo_2.png" alt="Logo" height="100"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+                <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="btn btn-outline-light" href="index.php">Home</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="Rules.php">Rules</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="FAQ.php">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="Esports.html">Esports</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <!-- New list item for social media icons -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://twitter.com/Kean_Esports" target="_blank"><img src="logos/xlogo.png" alt="Twitter Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                    <!-- Vertical line between icons -->
+                    <li class="nav-item vertical-line"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.twitch.tv/kean_esports" target="_blank"><img src="logos/twitchlogo.png" alt="Twitch Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                    <!-- Vertical line between icons -->
+                    <li class="nav-item vertical-line"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://www.instagram.com/kean_esports" target="_blank"><img src="logos/instagram.png" alt="Instagram Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                    <!-- Vertical line between icons -->
+                    <li class="nav-item vertical-line"></li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://discord.gg/MqYR638K" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="timeline">
+      <div class="container left-container">
+        <div class="text-box">
+          <h2>Kean Esports Inception</h2>
+            <smalll>2020</small>
+              <p>asdasdfasffasfasfasfasfasfas<p>
+               <span class="right-container-arrow"></span>
+        </div>
+      </div>
+      <div class="container right-container">
+        <div class="text-box">
+          <h2>Kean Esports Club</h2>
+            <smalll>2021</small>
+              <p>asdasdfasffasfasfasfasfasfas<p>
+              <span class="left-container-arrow"></span>
+        </div>
+      </div>
+      <div class="container left-container">
+        <div class="text-box">
+          <h2>Kean Esports Program Creation</h2>
+            <smalll>2021 - Present</small>
+              <p>asdasdfasffasfasfasfasfasfas<p>
+              <span class="right-container-arrow"></span>
+        </div>
+      </div>
+      <div class="container right-container">
+        <div class="text-box">
+          <h2>Kean Esports Arena Grand Opening</h2>
+            <smalll>2022</small>
+              <p>asdasdfasffasfasfasfasfasfas<p>
+              <span class="left-container-arrow"></span>
+        </div>
+      </div>
+      <div class="container left-container">
+        <div class="text-box">
+          <h2>Kean Esports History</h2>
+            <smalll>2020 - 2024</small>
+              <p>asdasdfasffasfasfasfasfasfas<p>
+              <span class="right-container-arrow"></span>
+        </div>
+      </div>
+    </div>
+  </main>
+  <br><br><br><br><br><br><br>
+  <footer class="footer">
+      <div class="container text-center">
+          <!-- Footer Links -->
+          <p>Connect to the rest of Kean:</p>
+          <a href="https://kean.edu" target="_blank">Kean University Website</a>
+          <span class="footer-divider">|</span>
+          <a href="https://keanathletics.com" target="_blank">Kean Athletics</a>
+          <span class="footer-divider">|</span>
+          <a href="https://webreg.kean.edu/WebAdvisor/WebAdvisor?TYPE=M&PID=CORE-WBMAIN&TOKENIDX=1241765240" target="_blank">KeanWISE</a>
+          <span class="footer-divider">|</span>
+          <a href="https://selfservice.kean.edu/Student/" target="_blank">Student Planning</a>
+      </div>
+  </footer>

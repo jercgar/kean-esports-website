@@ -15,7 +15,50 @@
             border-left: 1px solid #ccc;
             height: 30px; /* Adjust height as needed */
             margin: 0 10px; /* Adjust margin as needed */
-        }
+
+            .carousel {
+  width: 100%;
+  max-width: 600px; /* Adjust the width as needed */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.prev {
+  left: 0;
+}
+
+.next {
+  right: 0;
+}
+      }
     </style>
 </head>
 <body>
@@ -33,6 +76,9 @@
                   <li class="nav-item">
                   <a class="btn btn-outline-light" href="index.php">Home</a>
                   </li>
+                  <li class="nav-item">
+                    <a class="btn btn-outline-light" href="AboutUs.html">About</a>
+                </li>
                   <li class="nav-item">
                     <a class="btn btn-outline-light" href="TeamRoster.html">Teams</a>
                   </li>
@@ -185,6 +231,46 @@
         </div>
       </div>
     </main>
+    <br><br><br><br><br><br><br>
+    <div id="instagramCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+            <!-- Embedded Instagram post -->
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C20S_MhOB3v/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+                <!-- Instagram Embed Code -->
+            </blockquote>
+            <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+        <!-- Add more carousel items with embedded Instagram posts here -->
+      </div>
+      <a class="carousel-control-prev" href="#instagramCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#instagramCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+    
+    <script>
+    const carousel = document.querySelector('.carousel');
+    const carouselInner = carousel.querySelector('.carousel-inner');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
+    
+    let counter = 0;
+    
+    nextBtn.addEventListener('click', () => {
+      counter++;
+      carouselInner.style.transform = `translateX(-${counter * 100}%)`;
+    });
+    
+    prevBtn.addEventListener('click', () => {
+      counter--;
+      carouselInner.style.transform = `translateX(-${counter * 100}%)`;
+    });
+    </script>
     <footer class="footer">
       <div class="container text-center">
           <!-- Footer Links -->

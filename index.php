@@ -40,14 +40,17 @@
                 <ul class="navbar-nav">
                     <?php echo $loginOption; ?>
                     <li class="nav-item">
-                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
+                        <a class="btn btn-outline-light" href="AboutUs.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="btn btn-outline-light" href="availability.php">PC Availability</a>
                     </li>
                     <?php echo $dailyLogOption; ?>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
+                        <a class="btn btn-outline-light" href="OperationHours.php">Hours</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Download Request</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-light" href="Rules.php">Rules</a>
@@ -59,7 +62,6 @@
                         <a class="btn btn-outline-light" href="Esports.html">Esports</a>
                     </li>
                     <?php echo $accountManagerOption; ?>
-                    <?php echo $historyOption; ?>
                     <?php echo $logoutOption; ?>
                 </ul>
                 <ul class="navbar-nav">
@@ -87,29 +89,51 @@
         </div>
     </nav>
     <main class="home-page-main">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="youtube-video-1"></div>
-                            <p class="card-text">Witness the Grand Opening of Kean University's eSports Arena</p>
-                            <a href="https://youtu.be/LVuf_rm7TLg?si=xzkmi9TZGhKqfihT" class="btn btn-outline-primary">Click Here</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <div id="youtube-video-2"></div>
-                            <p class="card-text">Let's see how Kean University is changing the playing field with eSports</p>
-                            <a href="https://youtu.be/hGYbm2clw8Q?si=r5NjGlVYkHPpuvHM" class="btn btn-outline-primary">Click Here</a>
-                        </div>
-                    </div>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div id="youtube-video-1"></div>
+                    <p class="card-text">Witness the Grand Opening of Kean University's eSports Arena</p>
+                    <a href="https://youtu.be/LVuf_rm7TLg?si=xzkmi9TZGhKqfihT" class="btn btn-outline-primary">Click Here</a>
                 </div>
             </div>
         </div>
-    </main>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <div id="youtube-video-2"></div>
+                    <p class="card-text">Let's see how Kean University is changing the playing field with eSports</p>
+                    <a href="https://youtu.be/hGYbm2clw8Q?si=r5NjGlVYkHPpuvHM" class="btn btn-outline-primary">Click Here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <img src="placeholder_image1.jpg" class="card-img-top" alt="Placeholder Image 1">
+                <div class="card-body">
+                    <h5 class="card-title">Placeholder Card 1</h5>
+                    <p class="card-text">This is a placeholder card.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <img src="placeholder_image2.jpg" class="card-img-top" alt="Placeholder Image 2">
+                <div class="card-body">
+                    <h5 class="card-title">Placeholder Card 2</h5>
+                    <p class="card-text">This is another placeholder card.</p>
+                    <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</main>
     <br><br><br><br><br><br><br>
     <footer class="footer">
         <div class="container text-center">

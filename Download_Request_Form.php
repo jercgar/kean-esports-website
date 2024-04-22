@@ -44,10 +44,13 @@
                     <a class="btn btn-outline-light" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
+                        <a class="btn btn-outline-light" href="AboutUs.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
+                    <a class="btn btn-outline-light" href="availability.php">PC Availability</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="OperationHours.php">Hours</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-light" href="Rules.php">Rules</a>
@@ -98,7 +101,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="PC Platform" class="form-label">PC Platform</label>
-                    <select class="form-select" id="PC Platform" name="PC Platform" required>
+                    <select class="form-select" id="PC Platform" name="PC Platform"placeholder="Platform" required>
+                        <option value="Select-Platform">Select Platform</option>
                         <option value="Steam">Steam</option>
                         <option value="Epic">Epic Games</option>
                         <option value="Ubisoft">Ubisoft Connect</option>

@@ -1,32 +1,4 @@
-<?php
-// Place your session handling code here to ensure users are logged in.
-session_start();
-
-// Database connection parameters
-$servername = "localhost";
-$username = "justin";
-$password = "justin";
-$dbname = "esports";
-
-// Create a connection to the database
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// Check if the connection was successful
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-if (isset($_SESSION['username'])) {
-    $dailyLogOption = '<li><a href="DailyLog.php">Daily Log</a></li>';
-    $logoutOption = '<li><a href="logout.php">Logout</a></li>';
-    $loginOption = '';
-} else {
-    $dailyLogOption = '';
-    $logoutOption = '';
-    $loginOption = '<li><a href="login.php">Login</a></li>';
-}
-
-$error_message = '';
+<?php include 'dbtab.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Connect to the database (use your database credentials)
@@ -36,28 +8,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // This part handles new record insertion
-    // Sanitize user inputs (you can add more validation)
-    $first_name = mysqli_real_escape_string($conn, $_POST["first_name"]);
-    $last_name = mysqli_real_escape_string($conn, $_POST["last_name"]);
-    $computer_choice = mysqli_real_escape_string($conn, $_POST["computer_choice"]);
-    $student_id = mysqli_real_escape_string($conn, $_POST["student_id"]);
-
-    // Validate computer choice range (1-23)
-    if ($computer_choice < 1 || $computer_choice > 23) {
-        $error_message = "Computer choice must be between 1 and 23.";
+    if ($_SESSION['arena_status'] != 'Arena open') {
+        $error_message = "Records cannot be submitted while the arena is closed.";
     } else {
-        // Insert data into the database
-        $sql = "INSERT INTO daily_log (first_name, last_name, computer_choice, student_id) VALUES ('$first_name', '$last_name', $computer_choice, $student_id)";
+    // Check if editing time_exit
+    if (isset($_POST['edit_time_exit'])) {
+        // Get the updated time_exit and the row id
+        $new_time_exit = mysqli_real_escape_string($conn, $_POST["new_time_exit"]);
+        $row_id = mysqli_real_escape_string($conn, $_POST["row_id"]);
+
+        // Update the time_exit in the database
+        $sql = "UPDATE daily_log SET time_exit = '$new_time_exit' WHERE id = $row_id";
 
         if ($conn->query($sql) === TRUE) {
-            // Data inserted successfully
-            // You can update computer availability here
+            // Time_exit updated successfully
+            // You can add any necessary logic here
+            header("Location: DailyLog.php"); // Redirect to refresh the page after update
+            exit();
         } else {
             // Handle the error
-            $error_message = "Error: " . $sql . "<br>" . $conn->error;
+            $error_message = "Error updating time exit: " . $conn->error;
+        }
+    } else {
+        // This part handles new record insertion
+        // Sanitize user inputs (you can add more validation)
+        $first_name = mysqli_real_escape_string($conn, $_POST["first_name"]);
+        $last_name = mysqli_real_escape_string($conn, $_POST["last_name"]);
+        $computer_choice = mysqli_real_escape_string($conn, $_POST["computer_choice"]);
+        $student_id = mysqli_real_escape_string($conn, $_POST["student_id"]);
+
+        // Validate computer choice range (1-23)
+        if ($computer_choice < 1 || $computer_choice > 23) {
+            $error_message = "Computer choice must be between 1 and 23.";
+        } else {
+            // Insert data into the database
+            $sql = "INSERT INTO daily_log (first_name, last_name, computer_choice, student_id) VALUES ('$first_name', '$last_name', $computer_choice, $student_id)";
+
+            if ($conn->query($sql) === TRUE) {
+                // Data inserted successfully
+                // You can update computer availability here
+            } else {
+                // Handle the error
+                $error_message = "Error: " . $sql . "<br>" . $conn->error;
+            }
         }
     }
+}
 
     // Check if a delete request was sent
     if (isset($_POST['delete'])) {
@@ -148,13 +144,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <a class="btn btn-outline-light" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
+                        <a class="btn btn-outline-light" href="AboutUs.html">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
+                    <a class="btn btn-outline-light" href="availability.php">PC Availability</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
+                        <a class="btn btn-outline-light" href="OperationHours.php">Hours</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Download Request</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-light" href="Rules.php">Rules</a>
@@ -213,7 +212,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="number" id="student_id" name="student_id" required>
             <br><br>
             <button type="submit" class="btn btn-outline-light">Submit</button>
-        </form>
+        </form><br>
+        <a href="history.php" class="btn btn-outline-light redirect-button">Daily Log History</a>
         <?php if (!empty($error_message)): ?>
             <div class="error"><?php echo $error_message; ?></div>
         <?php endif; ?>
