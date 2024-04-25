@@ -46,9 +46,10 @@ $conn->close();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Download Request Form - Kean University eSports Arena</title>
+    <title>Login</title>
     <!-- Include Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         /* Additional CSS for header */
@@ -65,6 +66,64 @@ $conn->close();
             height: 30px; /* Adjust height as needed */
             margin: 0 10px; /* Adjust margin as needed */
         }
+
+        /* Additional CSS for tooltip */
+/* Additional CSS for tooltip */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.input-group {
+    position: relative;
+}
+
+.tooltip .tooltip-icon {
+    position: absolute;
+    top: 50%;
+    right: 20px; /* Adjust the distance from the right edge */
+    transform: translateY(-50%);
+    color: #007bff; /* Change color as needed */
+    font-size: 18px;
+    cursor: pointer;
+}
+
+
+.tooltip .tooltip-icon:hover + .tooltiptext {
+    display: block;
+}
+
+.tooltip .tooltiptext {
+    display: none;
+    width: auto;
+    max-width: 200px;
+    background-color: #007bff; /* Change color as needed */
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 10px;
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.tooltip .tooltiptext::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #007bff transparent;
+}
+
+.tooltip .tooltiptext.show {
+    display: block;
+}
+
     </style>
 </head>
 <body>
@@ -83,14 +142,14 @@ $conn->close();
                     <a class="btn btn-outline-light" href="index.php">Home</a>
                     </li>
                     <li class="nav-item">
-                    <a class="btn btn-outline-light" href="availability.php">Computer Availability</a>
+                    <a class="btn btn-outline-light" href="availability.php">PC Availability</a>
                     </li>
                     <?php echo $dailyLogOption; ?>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="OperationHours.php">Operation Hours</a>
+                        <a class="btn btn-outline-light" href="OperationHours.php">Hours</a>
                     </li>
                     <li class="nav-item">
-                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Game Download Request</a>
+                        <a class="btn btn-outline-light" href="Download_Request_Form.php">Download Request</a>
                     </li>
                     <li class="nav-item">
                         <a class="btn btn-outline-light" href="Rules.php">Rules</a>
@@ -121,29 +180,40 @@ $conn->close();
                     <!-- Vertical line between icons -->
                     <li class="nav-item vertical-line"></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://discord.gg/MqYR638K" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
+                        <a class="nav-link" href="https://discord.gg/VEsmrtBM" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <main>
-        <div id="login-form">
-            <br>
-            <form action="login.php" method="post">
+    <div id="login-form">
+        <br>
+        <!-- Add disclaimer text here -->
+        <p>This page is intended for workers/admins only. Unauthorized access is prohibited.</p>
+        <form action="login.php" method="post">
+            <div class="input-group">
                 <label for="username">Username:</label>
                 <input type="textbox" id="username" name="username" required>
-                <br><br>
+                <span class="tooltip-icon" title="This information should have been given by the administrator"><i class="fas fa-question-circle"></i></span>
+            </div>
+            <br><br>
+            <div class="input-group">
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
-                <br><br>
-                <input type="submit" value="Login">
-            </form>
-            <br>
-            <div id="error_message"><?php if (!empty($error_message)) echo "<font color='red'>$error_message</font>" ?></div>
+                <span class="tooltip-icon" title="This information should have been given by the administrator"><i class="fas fa-question-circle"></i></span>
             </div>
-        </div>
-    </main>
+            <br><br>
+            <input type="submit" value="Login">
+        </form>
+        <br>
+        <div id="error_message"><?php if (!empty($error_message)) echo "<font color='red'>$error_message</font>" ?></div>
+    </div>
+</main>
+
+
+
+
 </body>
 </html>
 

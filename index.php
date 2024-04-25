@@ -24,6 +24,49 @@
             height: 30px; /* Adjust height as needed */
             margin: 0 10px; /* Adjust margin as needed */
         }
+
+        .carousel {
+  width: 100%;
+  max-width: 600px; /* Adjust the width as needed */
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  width: 100%;
+  flex: 0 0 auto;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: #000000;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.prev {
+  left: 100;
+}
+
+.next {
+  right: 100;
+}
     </style>
 </head>
 <body>
@@ -82,7 +125,7 @@
                     <!-- Vertical line between icons -->
                     <li class="nav-item vertical-line"></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://discord.gg/MqYR638K" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
+                        <a class="nav-link" href="https://discord.gg/VEsmrtBM" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
                     </li>
                 </ul>
             </div>
@@ -110,29 +153,51 @@
             </div>
         </div>
     </div>
-    <div class="row mt-4">
-        <div class="col-md-6">
-            <div class="card">
-                <img src="placeholder_image1.jpg" class="card-img-top" alt="Placeholder Image 1">
-                <div class="card-body">
-                    <h5 class="card-title">Placeholder Card 1</h5>
-                    <p class="card-text">This is a placeholder card.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div class="card">
-                <img src="placeholder_image2.jpg" class="card-img-top" alt="Placeholder Image 2">
-                <div class="card-body">
-                    <h5 class="card-title">Placeholder Card 2</h5>
-                    <p class="card-text">This is another placeholder card.</p>
-                    <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
+<br><br><br>
+    <div id="instagramCarousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <!-- Embedded Instagram post from the first link -->
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C20S_MhOB3v/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+            <!-- Instagram Embed Code -->
+          </blockquote>
+          <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+        <div class="carousel-item">
+          <!-- Embedded Instagram post from the second link -->
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C2skZP8uPuU/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+            <!-- Instagram Embed Code -->
+          </blockquote>
+          <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+        <div class="carousel-item">
+          <!-- Embedded Instagram post from the third link -->
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/C4ZLmWYLhD0/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:-webkit-calc(100% - 2px);width:calc(100% - 2px);">
+            <!-- Instagram Embed Code -->
+          </blockquote>
+          <script async src="//www.instagram.com/embed.js"></script>
+        </div>
+        <!-- Add more carousel items with embedded Instagram posts here -->
+      </div>
+    </div>
+    
+    
+    <!-- Include jQuery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<!-- Include Bootstrap JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/js/bootstrap.bundle.min.js"></script>
+
+<!-- Remove your custom JavaScript code -->
+
+<script>
+  // Initialize the carousel using Bootstrap
+  $(document).ready(function(){
+    $('#instagramCarousel').carousel();
+  });
+</script>
+
 </main>
     <br><br><br><br><br><br><br>
     <footer class="footer">
@@ -195,8 +260,8 @@
 
             function onPlayerStateChange(event) {
                 if (event.data == YT.PlayerState.ENDED) {
-                    // Move to the next video in the carousel
-                    $('#carouselExampleSlidesOnly').carousel('next');
+                    event.target.seekTo(0); // Seek to the beginning of the video
+                    event.target.playVideo(); // Play the video again
                 }
             }
         }

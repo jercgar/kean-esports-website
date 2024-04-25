@@ -83,7 +83,7 @@
                     <!-- Vertical line between icons -->
                     <li class="nav-item vertical-line"></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="https://discord.gg/MqYR638K" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
+                        <a class="nav-link" href="https://discord.gg/VEsmrtBM" target="_blank"><img src="logos/DiscordLogo.png" alt="Discord Logo" class="social-icon" width="30" height="30"></a>
                     </li>
                 </ul>
             </div>
